@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const transformations = [
+  {
+    id: 1,
+    title: 'Al-Nakheel Villa',
+    ar: 'فيلا النخيل',
+    location: 'Riyadh',
+    before: 'Plain render finish, flat roofline, no architectural character. Standard 1990s villa construction.',
+    after: 'Full neoclassical facade transformation: Corinthian columns, royal cornice, arched windows, GRC ornamental system.',
+    duration: '6 weeks',
+    elements: ['14× Corinthian columns', 'Royal crown cornice', '8× Arch window surrounds', 'Decorative balustrade', 'Grand entrance arch'],
+    impact: 'Property value increased by estimated 35%',
+    beforeGradient: 'linear-gradient(160deg,#2a2010,#1a1508,#100e05)',
+    afterGradient: 'radial-gradient(ellipse 65% 55% at 55% 75%, rgba(201,169,110,.22) 0%, transparent 65%), linear-gradient(160deg,#0d0a06,#1a1208,#0a0705)',
+  },
+  {
+    id: 2,
+    title: 'Al-Rashid Compound Gate',
+    ar: 'بوابة مجمع الراشد',
+    location: 'Jeddah',
+    before: 'Standard metal gate with plain concrete wall. No architectural expression at entry point.',
+    after: 'Triumphal arch gate system with guard pavilions, decorative wall cladding, and landscape integration.',
+    duration: '4 weeks',
+    elements: ['Triumphal arch system', 'Twin guard pavilions', 'Decorative wall cladding', 'Finial & urn system', 'Custom name cartouche'],
+    impact: 'Complete estate identity transformation',
+    beforeGradient: 'linear-gradient(160deg,#1a1008,#0d0a05,#080808)',
+    afterGradient: 'radial-gradient(ellipse 55% 50% at 50% 80%, rgba(201,169,110,.18) 0%, transparent 60%), linear-gradient(160deg,#0d0a06,#161008,#0a0705)',
+  },
+  {
+    id: 3,
+    title: 'Pearl Tower Exterior',
+    ar: 'واجهة برج اللؤلؤ',
+    location: 'Dubai',
+    before: 'Glass curtain wall commercial building with no architectural articulation or identity.',
+    after: 'GRC facade cladding system with vertical fins, decorative banding, and rooftop crown element.',
+    duration: '12 weeks',
+    elements: ['GRC vertical fin system', 'Decorative floor banding', 'Crown cornice system', 'Entry portico', 'Signage integration'],
+    impact: 'Full rebranding and identity transformation',
+    beforeGradient: 'linear-gradient(160deg,#080d1a,#0a0f20,#080808)',
+    afterGradient: 'radial-gradient(ellipse 60% 50% at 45% 80%, rgba(201,169,110,.16) 0%, transparent 62%), linear-gradient(160deg,#08080d,#0f1018,#080808)',
+  },
+];
+---
+
+<Layout title="OSOOL Facade Transformations — Before & After | تحويل الواجهات" page="transformations">
+
+  <!-- HERO -->
+  <section class="relative min-h-[65vh] flex items-end overflow-hidden" style="padding-top:100px;">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 70% 55% at 50% 90%, rgba(201,169,110,.14) 0%, transparent 65%), linear-gradient(180deg,#080808 0%,#1a1208 55%,#080808 100%);"></div>
+    <div class="relative z-10 section-pad w-full max-w-screen-xl mx-auto pb-24">
+      <div class="label-en mb-6 reveal" style="color:var(--gold);">The OSOOL Effect</div>
+      <h1 class="display-en mb-4 reveal reveal-delay-1">FACADE<br/><em style="font-style:italic; color:var(--gold);">TRANSFORMATIONS</em></h1>
+      <p class="display-ar reveal reveal-delay-2" style="font-size:clamp(1.8rem,3.5vw,4rem);">تحويل الواجهات — قبل وبعد</p>
+      <p class="body-luxury max-w-xl mt-8 reveal reveal-delay-3">
+        We take ordinary buildings and transform them into architectural statements. Drag each slider to witness the OSOOL effect.
+      </p>
+    </div>
+  </section>
+
+  <!-- INTRO STATEMENT -->
+  <section class="section-pad" style="background:var(--black-deep);">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+      {[
+        { num:'35%', label:'Average property value increase after OSOOL transformation', ar:'متوسط ارتفاع قيمة العقار بعد تحويل أصول' },
+        { num:'4–12', label:'Weeks from project start to completed transformation', ar:'أسابيع من بدء المشروع إلى اكتمال التحويل' },
+        { num:'100%', label:'Of clients report the transformation exceeded their expectations', ar:'من العملاء يؤكدون أن التحويل فاق توقعاتهم' },
+      ].map(({ num, label, ar },i) => (
+        <div class={`text-center reveal reveal-delay-${i+1}`}>
+          <div class="font-cormorant font-light mb-3" style="font-size:clamp(3rem,5vw,5rem); color:var(--gold);">{num}</div>
+          <div class="h-px mb-4" style="background:linear-gradient(90deg,transparent,var(--gold-muted),transparent); opacity:0.3;"></div>
+          <p class="body-luxury text-sm leading-relaxed">{label}</p>
+          <p class="font-amiri mt-2 text-sm" style="color:var(--bronze);" dir="rtl">{ar}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- TRANSFORMATION SHOWCASES -->
+  {transformations.map(({ id, title, ar, location, before, after, duration, elements, impact, beforeGradient, afterGradient },ti) => (
+    <section class="section-pad" style={`background:${ti%2===0?'var(--black)':'var(--black-deep)'};`}>
+      <div class="max-w-screen-xl mx-auto">
+
+        <!-- Header -->
+        <div class="mb-10 reveal">
+          <div class="flex items-center gap-4 mb-3">
+            <span class="font-cormorant font-light text-5xl" style="color:var(--gold); opacity:.4;">0{id}</span>
+            <div class="h-px flex-1" style="background:var(--black-border);"></div>
+          </div>
+          <h2 class="headline-en">{title}</h2>
+          <p class="font-amiri mt-1" style="color:var(--sandstone); font-size:1.5rem;" dir="rtl">{ar}</p>
+          <div class="label-en mt-2" style="color:var(--gold-muted);">{location} · {duration} project</div>
+        </div>
+
+        <!-- Slider -->
+        <div class="reveal reveal-delay-1 mb-10">
+          <div
+            id={`ba-${id}`}
+            class="relative select-none overflow-hidden"
+            style="height:clamp(260px,42vw,550px); cursor:ew-resize;"
+          >
+            <!-- BEFORE -->
+            <div class="absolute inset-0" style={`background:${beforeGradient};`}>
+              <svg class="w-full h-full opacity-30" viewBox="0 0 1200 550" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+                <rect x="80" y="70" width="1040" height="480" fill="rgba(160,140,100,.22)" stroke="rgba(90,70,30,.3)" stroke-width="1.5"/>
+                {[160,380,620,840,1040].map((x:number)=>(
+                  <rect key={x} x={x} y="160" width="140" height="270" fill="rgba(120,100,60,.16)" stroke="rgba(80,60,20,.25)" stroke-width="1"/>
+                ))}
+                <rect x="80" y="70" width="1040" height="22" fill="rgba(100,80,40,.28)"/>
+              </svg>
+              <div class="absolute bottom-4 left-4 px-4 py-2 label-en" style="background:rgba(8,8,8,.9); color:var(--bronze);">◀ BEFORE</div>
+            </div>
+
+            <!-- AFTER -->
+            <div id={`ba-after-${id}`} class="absolute inset-0" style={`background:${afterGradient}; clip-path:inset(0 50% 0 0);`}>
+              <svg class="w-full h-full opacity-5" viewBox="0 0 1200 550" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+                <rect x="60" y="50" width="1080" height="500" fill="url(#taV)" opacity="0.6"/>
+                {[120,240,360,840,960,1080].map((x:number)=>(
+                  <g key={x}>
+                    <rect x={x} y="35" width="45" height="515" fill="url(#taC)"/>
+                    <ellipse cx={x+22} cy="40" rx="34" ry="52" fill="rgba(232,213,163,.45)"/>
+                    <rect x={x-6} y="30" width="57" height="13" fill="rgba(201,169,110,.55)"/>
+                  </g>
+                ))}
+                <rect x="50" y="20" width="1100" height="38" fill="rgba(201,169,110,.48)"/>
+                <path d="M50 20 L600 -12 L1150 20" stroke="rgba(201,169,110,.65)" stroke-width="2.5"/>
+                {[195,510,825].map((x:number)=>(
+                  <g key={x}>
+                    <rect x={x} y="330" width="118" height="190" fill="rgba(201,169,110,.18)" stroke="rgba(201,169,110,.45)" stroke-width="1.5"/>
+                    <path d={`M${x} 330 Q${x+59} 268 ${x+118} 330`} fill="rgba(201,169,110,.28)"/>
+                  </g>
+                ))}
+                <ellipse cx="600" cy="550" rx="490" ry="65" fill="rgba(201,169,110,.1)"/>
+                <defs>
+                  <linearGradient id="taV" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9A96E" stop-opacity="0.3"/><stop offset="100%" stop-color="#1a1208" stop-opacity="0.75"/></linearGradient>
+                  <linearGradient id="taC" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0a0805"/><stop offset="35%" stop-color="#E8D5A3" stop-opacity="0.55"/><stop offset="65%" stop-color="#C9A96E" stop-opacity="0.42"/><stop offset="100%" stop-color="#0a0805"/></linearGradient>
+                </defs>
+              </svg>
+              <div class="absolute bottom-4 right-4 px-4 py-2 label-en" style="background:rgba(8,8,8,.9); color:var(--gold);">AFTER ▶</div>
+            </div>
+
+            <!-- Handle -->
+            <div
+              id={`handle-${id}`}
+              class="absolute top-0 bottom-0"
+              style="left:50%; transform:translateX(-50%); width:2px; background:var(--gold); z-index:10; cursor:ew-resize;"
+            >
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center" style="background:var(--gold); box-shadow:0 0 0 2px var(--black),0 0 20px rgba(201,169,110,.4);">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Details grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 reveal reveal-delay-2">
+          <div class="luxury-card bg-o-card p-6">
+            <div class="label-en mb-3" style="color:var(--bronze);">BEFORE</div>
+            <p class="body-luxury text-sm leading-relaxed">{before}</p>
+          </div>
+          <div class="luxury-card bg-o-card p-6">
+            <div class="label-en mb-3" style="color:var(--gold);">AFTER</div>
+            <p class="body-luxury text-sm leading-relaxed">{after}</p>
+            <div class="mt-4 space-y-2">
+              {elements.map(e=>(
+                <div class="flex items-center gap-2 body-luxury text-xs">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  {e}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div class="luxury-card bg-o-card p-6">
+            <div class="label-en mb-3" style="color:var(--gold);">Impact</div>
+            <p class="font-cormorant font-light mb-4" style="font-size:1.3rem; color:var(--ivory);">{impact}</p>
+            <a href="/contact" class="btn-luxury inline-flex w-full justify-center mt-2">
+              <span>Start Your Transformation</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- HOW IT WORKS -->
+  <section class="section-pad" style="background:var(--black-warm);">
+    <div class="max-w-screen-xl mx-auto text-center mb-16">
+      <div class="label-en mb-4 reveal" style="color:var(--gold);">Our Process</div>
+      <h2 class="headline-en reveal reveal-delay-1">How Transformation Works</h2>
+      <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">كيف تتم عملية التحويل</p>
+    </div>
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+      {[
+        { step:'01', title:'Site Survey', ar:'المسح الميداني', desc:'Full photographic and dimensional survey of existing facade.' },
+        { step:'→', title:'', ar:'', desc:'' },
+        { step:'02', title:'Design & AI Render', ar:'التصميم والتصور', desc:'AI-assisted design concepts with photorealistic before/after renders.' },
+        { step:'→', title:'', ar:'', desc:'' },
+        { step:'03', title:'GRC Fabrication', ar:'تصنيع GRC', desc:'Custom elements fabricated to exact specifications.' },
+        { step:'→', title:'', ar:'', desc:'' },
+        { step:'04', title:'Installation', ar:'التركيب', desc:'Expert installation team with full project management.' },
+        { step:'→', title:'', ar:'', desc:'' },
+        { step:'05', title:'Completion', ar:'الإتمام', desc:'Final inspection, photography, and client handover.' },
+      ].map(({ step, title, ar, desc },i) => (
+        step === '→' ? (
+          <div class="hidden md:flex justify-center" style="color:var(--gold-muted); opacity:0.4;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        ) : (
+          <div class={`luxury-card bg-o-card p-6 text-center reveal reveal-delay-${Math.ceil((i+1)/2)}`}>
+            <div class="font-cormorant font-light mb-3" style="font-size:3rem; color:var(--gold); opacity:0.4;">{step}</div>
+            <h3 class="font-cormorant font-light mb-1" style="color:var(--ivory); font-size:1.1rem;">{title}</h3>
+            <p class="font-amiri text-xs mb-3" style="color:var(--bronze);" dir="rtl">{ar}</p>
+            <p class="body-luxury text-xs leading-relaxed">{desc}</p>
+          </div>
+        )
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad" style="background:var(--black);">
+    <div class="max-w-screen-lg mx-auto text-center">
+      <h2 class="headline-en mb-4 reveal">Transform Your Facade</h2>
+      <p class="font-amiri mb-8 reveal reveal-delay-1" style="color:var(--sandstone); font-size:1.5rem;" dir="rtl">حوّل واجهتك مع أصول</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-2">
+        <a href="/contact" class="btn-luxury"><span>Book Transformation Consultation</span></a>
+        <a href="/grc-collection" class="btn-luxury-outline"><span>Explore GRC Elements</span></a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Initialize all sliders
+  document.querySelectorAll('[id^="ba-"]:not([id^="ba-after"])').forEach(slider => {
+    if (!(slider instanceof HTMLElement)) return;
+    const num = slider.id.replace('ba-', '');
+    if (num === 'after') return;
+    const after  = document.getElementById(`ba-after-${num}`);
+    const handle = document.getElementById(`handle-${num}`);
+    if (!after || !handle) return;
+
+    let dragging = false;
+    const move = (clientX: number) => {
+      const rect = slider.getBoundingClientRect();
+      const pct  = Math.max(5, Math.min(95, ((clientX - rect.left) / rect.width) * 100));
+      handle.style.left = pct + '%';
+      after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    };
+
+    handle.addEventListener('mousedown',  () => { dragging = true; });
+    handle.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+    window.addEventListener('mousemove',  e => { if (dragging) move(e.clientX); });
+    window.addEventListener('touchmove',  e => { if (dragging) move(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('mouseup',   () => { dragging = false; });
+    window.addEventListener('touchend',  () => { dragging = false; });
+    slider.addEventListener('click',      e => move(e.clientX));
+  });
+</script>

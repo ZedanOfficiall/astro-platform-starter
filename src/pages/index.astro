@@ -1,21 +1,529 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
-`;
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-4" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
-    <Markdown content={explainer} class="text-lg mb-10" />
-    <p class="mb-8">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg btn-primary sm:btn-wide">Read the Docs</a>
-    </p>
+<Layout title="OSOOL — Luxury Architectural Facades & GRC Solutions | أصول" page="home">
+
+  <!-- ═══════════════════════════════════════ HERO ═══ -->
+  <section id="hero" class="relative w-full min-h-screen flex flex-col justify-end overflow-hidden">
+
+    <!-- Atmospheric background -->
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse 80% 60% at 65% 85%, rgba(201,169,110,.13) 0%, transparent 68%), radial-gradient(ellipse 50% 40% at 15% 95%, rgba(139,115,85,.08) 0%, transparent 60%), linear-gradient(180deg, #080808 0%, #0D0B06 55%, #080808 100%);"></div>
+
+    <!-- Architectural facade SVG illustration -->
+    <div class="absolute inset-0 overflow-hidden" aria-hidden="true" style="opacity: 0.18;">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice" class="absolute inset-0 w-full h-full" fill="none">
+        <rect x="100" y="180" width="1240" height="720" fill="url(#hFacade)" opacity="0.4"/>
+        <rect x="100" y="145" width="1240" height="55" fill="rgba(201,169,110,0.5)"/>
+        <rect x="100" y="135" width="1240" height="15" fill="rgba(232,213,163,0.4)"/>
+        <path d="M100 145 L720 30 L1340 145" stroke="rgba(201,169,110,0.6)" stroke-width="2.5" fill="none"/>
+        {[180,310,440,570,700,830,960,1090,1220].map((x:number) => (
+          <g key={x}>
+            <rect x={x} y="120" width="55" height="780" fill="url(#hCol)"/>
+            <ellipse cx={x+27} cy="123" rx="38" ry="58" fill="rgba(232,213,163,0.45)"/>
+            <rect x={x-8} y="113" width="71" height="16" fill="rgba(201,169,110,0.55)"/>
+            <rect x={x+5} y="113" width="45" height="8" fill="rgba(232,213,163,0.3)"/>
+          </g>
+        ))}
+        {[240,490,740,990].map((x:number) => (
+          <g key={x}>
+            <rect x={x} y="420" width="130" height="210" fill="rgba(201,169,110,0.15)" stroke="rgba(201,169,110,0.4)" stroke-width="1.5"/>
+            <path d={`M${x} 420 Q${x+65} 345 ${x+130} 420`} fill="rgba(201,169,110,0.25)"/>
+            <rect x={x+20} y="230" width="90" height="130" fill="rgba(201,169,110,0.12)" stroke="rgba(201,169,110,0.3)" stroke-width="1"/>
+          </g>
+        ))}
+        <ellipse cx="720" cy="900" rx="600" ry="90" fill="rgba(201,169,110,0.1)"/>
+        <defs>
+          <linearGradient id="hFacade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.35"/>
+            <stop offset="60%" stop-color="#8B7355" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#080808" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="hCol" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#0d0905"/>
+            <stop offset="30%" stop-color="#E8D5A3" stop-opacity="0.55"/>
+            <stop offset="70%" stop-color="#C9A96E" stop-opacity="0.4"/>
+            <stop offset="100%" stop-color="#0d0905"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Warm bottom glow -->
+    <div class="absolute bottom-0 inset-x-0 h-2/3" style="background: radial-gradient(ellipse 90% 60% at 50% 100%, rgba(201,169,110,0.15) 0%, transparent 70%);"></div>
+
+    <!-- Noise texture -->
+    <div class="absolute inset-0 pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22n%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.75%22 numOctaves=%224%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23n)%22 opacity=%220.04%22/%3E%3C/svg%3E'); opacity: 0.6;"></div>
+
+    <!-- Vertical side text -->
+    <div class="absolute left-8 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4" aria-hidden="true">
+      <div class="h-16 w-px" style="background: var(--gold); opacity: 0.35;"></div>
+      <span style="writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: 0.32em; font-size: 0.58rem; font-family: 'Cormorant Garamond', serif; color: var(--gold-muted); text-transform: uppercase;">ARCHITECTURAL FACADES &amp; GRC SOLUTIONS</span>
+      <div class="h-16 w-px" style="background: var(--gold); opacity: 0.35;"></div>
+    </div>
+
+    <!-- Hero content -->
+    <div class="relative z-10 px-6 md:px-12 xl:px-20 pb-24 md:pb-32">
+      <div class="label-en mb-6 md:mb-10 reveal reveal-delay-1" style="color: var(--gold);">
+        ✦ &nbsp; Est. 2020 &nbsp;·&nbsp; Riyadh, Saudi Arabia &nbsp;·&nbsp; osoolstudio.com
+      </div>
+
+      <h1 class="display-en mb-3 reveal reveal-delay-2">
+        WHERE <br/>
+        <em style="font-style: italic; color: var(--gold);">ARCHITECTURE</em><br/>
+        BECOMES LEGACY
+      </h1>
+
+      <p class="display-ar reveal reveal-delay-3 mb-10 md:mb-16" style="font-size: clamp(2rem,4.5vw,5rem);">
+        حيث تتحوّل العمارة إلى إرث
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 reveal reveal-delay-4">
+        <a href="/portfolio" class="btn-luxury">
+          <span>Explore Our Work</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="/contact" class="btn-luxury-outline"><span>Get Consultation</span></a>
+        <div class="hidden md:flex items-center gap-3 ml-2">
+          <div class="h-px w-10" style="background: var(--gold); opacity:0.5;"></div>
+          <span class="font-amiri text-bronze text-sm" dir="rtl">احجز استشارتك</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-10 right-10 hidden md:flex flex-col items-center gap-3" aria-hidden="true">
+      <span style="writing-mode: vertical-rl; font-family: 'Cormorant Garamond', serif; font-size: 0.58rem; letter-spacing: 0.4em; color: var(--gold-muted); text-transform: uppercase;">SCROLL</span>
+      <div class="relative w-px h-20" style="background: var(--black-border);">
+        <div class="absolute inset-0" style="background: var(--gold); animation: scrollLine 2s ease infinite;"></div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="absolute bottom-0 left-0 right-0 border-t hidden lg:grid grid-cols-4" style="border-color: var(--black-border);">
+      {[
+        { num: '250+', label: 'Facade Projects', ar: 'مشروع واجهات' },
+        { num: '12+',  label: 'Years of Excellence', ar: 'عام من التميز' },
+        { num: '8',    label: 'Gulf Countries', ar: 'دول خليجية' },
+        { num: '100%', label: 'Client Satisfaction', ar: 'رضا العملاء' },
+      ].map(({ num, label, ar }) => (
+        <div class="px-8 py-5 border-r last:border-r-0 flex items-center gap-5" style="border-color: var(--black-border);">
+          <span class="font-cormorant text-3xl font-light" style="color: var(--gold);">{num}</span>
+          <div>
+            <div class="text-xs tracking-widest uppercase" style="color: var(--ivory); opacity: 0.65;">{label}</div>
+            <div class="font-amiri text-xs mt-0.5" style="color: var(--bronze);" dir="rtl">{ar}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ BRAND STATEMENT ═══ -->
+  <section class="section-pad max-w-screen-xl mx-auto">
+    <div class="max-w-4xl">
+      <div class="label-en mb-8 reveal" style="color: var(--gold);">Our Philosophy</div>
+      <h2 class="reveal reveal-delay-1" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,4vw,5rem); font-weight:300; line-height:1.05; letter-spacing:-0.02em; color:var(--ivory);">
+        We don't design buildings.<br/>
+        <em style="font-style:italic; color:var(--gold);">We craft architectural identities</em><br/>
+        that transcend time.
+      </h2>
+      <div class="h-px my-8 reveal reveal-delay-2" style="background: var(--black-border);"></div>
+      <p class="body-luxury max-w-2xl reveal reveal-delay-3">
+        OSOOL merges centuries of Arabic architectural heritage with contemporary luxury design thinking.
+        Each facade we create is a statement — a permanent mark of distinction that elevates the
+        surrounding landscape and endures as a monument to craftsmanship.
+      </p>
+      <p class="font-amiri mt-4 leading-loose reveal reveal-delay-4" style="color:var(--bronze); font-size:1.1rem;" dir="rtl">
+        أصول تمزج بين الإرث المعماري العربي العريق وأفكار التصميم الفاخر المعاصر. كل واجهة نصنعها تحكي قصة، وتترك بصمة لا تُمحى في المشهد المحيط.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════ SERVICES GRID ═══ -->
+  <section class="section-pad" style="background: var(--black-deep);" id="services">
+    <div class="max-w-screen-xl mx-auto">
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="label-en mb-4 reveal" style="color: var(--gold);">What We Create</div>
+          <h2 class="headline-en reveal reveal-delay-1">Our Services</h2>
+          <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">خدماتنا</p>
+        </div>
+        <a href="/services" class="btn-luxury-outline self-start reveal reveal-delay-2"><span>View All Services</span></a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style="background: var(--black-border);">
+        {[
+          { num:'01', title:'Luxury Facade Design', ar:'تصميم الواجهات الفاخرة', desc:'Palace-grade exterior design fusing neoclassical grandeur with modern precision and Arabic luxury aesthetics.', icon:'🏛' },
+          { num:'02', title:'GRC Decorative Systems', ar:'أنظمة GRC الزخرفية', desc:'Corinthian columns, ornate cornices, arches, balustrades — our GRC collection transforms any villa into a masterpiece.', icon:'⬡' },
+          { num:'03', title:'Facade Transformations', ar:'تحويل الواجهات', desc:'Dramatic before-and-after renovations. We reimagine aging exteriors as iconic luxury architectural statements.', icon:'✦' },
+          { num:'04', title:'Palace Entrance Design', ar:'تصميم مداخل القصور', desc:'Monumental gates, royal archways, and dramatic thresholds that command authority and awe from arrival.', icon:'◉' },
+          { num:'05', title:'Outdoor Luxury Structures', ar:'المنشآت الخارجية الفاخرة', desc:'Pergolas, majlis concepts, and architectural pavilions extending the palace language into the landscape.', icon:'◈' },
+          { num:'06', title:'AI Visualization', ar:'التصور بالذكاء الاصطناعي', desc:'Photorealistic AI renders let you experience your transformed facade before a single stone is laid.', icon:'◎' },
+        ].map(({ num, title, ar, desc, icon }, i) => (
+          <div class={`luxury-card bg-o-card p-8 md:p-10 relative overflow-hidden group reveal reveal-delay-${Math.min(i+1,6)}`}>
+            <div class="number-accent">{num}</div>
+            <div class="text-2xl mb-5 transition-opacity duration-300" style="color:var(--gold); opacity:0.6;">{icon}</div>
+            <h3 class="font-cormorant text-xl font-light mb-1 transition-colors duration-300 group-hover:text-gold" style="color:var(--ivory);">{title}</h3>
+            <p class="font-amiri text-xs mb-5" style="color:var(--bronze);" dir="rtl">{ar}</p>
+            <div class="h-px mb-5 transition-colors duration-500 group-hover:bg-gold" style="background:var(--black-border);"></div>
+            <p class="body-luxury text-sm leading-relaxed">{desc}</p>
+            <div class="mt-5 flex items-center gap-2 text-xs tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="color:var(--gold);">
+              <span>Learn More</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FEATURED PROJECTS ═══ -->
+  <section class="section-pad" id="portfolio">
+    <div class="max-w-screen-xl mx-auto">
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="label-en mb-4 reveal" style="color:var(--gold);">Selected Works</div>
+          <h2 class="headline-en reveal reveal-delay-1">Featured Projects</h2>
+          <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">أبرز أعمالنا</p>
+        </div>
+        <a href="/portfolio" class="btn-luxury-outline self-start reveal reveal-delay-2"><span>Full Portfolio</span></a>
+      </div>
+
+      <!-- Large hero project -->
+      <div class="reveal reveal-delay-1 mb-4">
+        <div class="img-zoom-wrap relative overflow-hidden group" style="height:clamp(340px,52vw,680px);">
+          <div class="img-fill absolute inset-0 transition-transform duration-700" style="background:radial-gradient(ellipse 70% 55% at 60% 75%, rgba(201,169,110,.22) 0%, transparent 65%), linear-gradient(160deg,#0d0a06 0%,#1a1208 40%,#0a0705 100%);"></div>
+          <!-- Architectural composition -->
+          <svg class="absolute inset-0 w-full h-full opacity-45" viewBox="0 0 1200 680" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+            <rect x="180" y="90" width="840" height="590" fill="url(#p1v)" opacity="0.55"/>
+            {[240,360,480,720,840,960].map((x:number)=>(
+              <g key={x}>
+                <rect x={x} y="68" width="48" height="610" fill="url(#p1c)"/>
+                <ellipse cx={x+24} cy="72" rx="34" ry="52" fill="rgba(232,213,163,.45)"/>
+                <rect x={x-7} y="62" width="62" height="14" fill="rgba(201,169,110,.55)"/>
+              </g>
+            ))}
+            <rect x="165" y="52" width="870" height="44" fill="rgba(201,169,110,.48)"/>
+            <rect x="160" y="42" width="880" height="14" fill="rgba(232,213,163,.35)"/>
+            <path d="M165 52 L600 -18 L1035 52" stroke="rgba(201,169,110,.65)" stroke-width="2.5"/>
+            {[295,555,815].map((x:number)=>(
+              <g key={x}>
+                <rect x={x} y="380" width="115" height="195" fill="rgba(201,169,110,.18)" stroke="rgba(201,169,110,.45)" stroke-width="1.5"/>
+                <path d={`M${x} 380 Q${x+57} 316 ${x+115} 380`} fill="rgba(201,169,110,.28)"/>
+                <rect x={x+15} y="210" width="85" height="125" fill="rgba(201,169,110,.12)" stroke="rgba(201,169,110,.32)" stroke-width="1"/>
+              </g>
+            ))}
+            <ellipse cx="600" cy="680" rx="480" ry="75" fill="rgba(201,169,110,.12)"/>
+            <defs>
+              <linearGradient id="p1v" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#C9A96E" stop-opacity="0.3"/>
+                <stop offset="60%" stop-color="#8B7355" stop-opacity="0.12"/>
+                <stop offset="100%" stop-color="#1a1208" stop-opacity="0.8"/>
+              </linearGradient>
+              <linearGradient id="p1c" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#0a0805"/>
+                <stop offset="35%" stop-color="#E8D5A3" stop-opacity="0.55"/>
+                <stop offset="65%" stop-color="#C9A96E" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#0a0805"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="absolute inset-0" style="background:linear-gradient(to top, var(--black) 0%, transparent 50%);"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+            <div class="label-en mb-2" style="color:var(--gold);">Riyadh · 2024</div>
+            <h3 class="font-cormorant font-light mb-2" style="font-size:clamp(2rem,4vw,4rem); color:var(--ivory);">Al-Wajd Palace Villa</h3>
+            <p class="font-amiri" style="color:var(--sandstone); font-size:1.2rem;" dir="rtl">قصر الوجد — واجهة نيوكلاسيكية بنظام GRC الملكي</p>
+            <div class="flex flex-wrap gap-2 mt-4">
+              {['Neoclassical','GRC Facade','Palace Grade'].map(t=>(
+                <span class="label-en px-3 py-1 border" style="border-color:var(--black-border); color:var(--gold-muted);">{t}</span>
+              ))}
+            </div>
+          </div>
+          <a href="/portfolio" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center border opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:var(--black-card); border-color:var(--black-border); color:var(--gold);" aria-label="View project">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Three smaller projects -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {[
+          { title:'Al-Noor Residences', ar:'مجمع النور', loc:'Jeddah · 2024', tags:['Transformation','GRC'], bg:'linear-gradient(135deg,#1a0f06,#2a1908,#0d0705)' },
+          { title:'Khalij Palace',      ar:'قصر الخليج',  loc:'Kuwait · 2023',  tags:['Palace Entrance','Full Facade'], bg:'linear-gradient(135deg,#0a0d1a,#081220,#080808)' },
+          { title:'Desert Retreat',     ar:'واحة الصحراء', loc:'Dubai · 2023',   tags:['Outdoor','Luxury'], bg:'linear-gradient(135deg,#120808,#1a0a06,#080808)' },
+        ].map(({ title, ar, loc, tags, bg },i) => (
+          <a href="/portfolio" class={`img-zoom-wrap relative overflow-hidden block reveal reveal-delay-${i+2}`} style={`height:clamp(220px,28vw,360px);`}>
+            <div class="img-fill absolute inset-0 transition-transform duration-700" style={`background:${bg};`}></div>
+            <svg class="absolute inset-0 w-full h-full opacity-35" viewBox="0 0 400 360" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+              <rect x="35" y="50" width="330" height="310" fill="url(#smGrad)"/>
+              {[75,195,315].map((x:number)=>(
+                <g key={x}><rect x={x} y="35" width="32" height="325" fill="rgba(201,169,110,.42)"/><ellipse cx={x+16} cy="38" rx="26" ry="42" fill="rgba(232,213,163,.4)"/></g>
+              ))}
+              <rect x="28" y="38" width="344" height="18" fill="rgba(201,169,110,.48)"/>
+              <ellipse cx="200" cy="360" rx="190" ry="45" fill="rgba(201,169,110,.1)"/>
+              <defs><linearGradient id="smGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9A96E" stop-opacity="0.22"/><stop offset="100%" stop-color="#080808" stop-opacity="0.85"/></linearGradient></defs>
+            </svg>
+            <div class="absolute inset-0" style="background:linear-gradient(to top, var(--black) 0%, transparent 55%);"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-6">
+              <div class="label-en mb-1" style="color:var(--gold-muted); font-size:.58rem;">{loc}</div>
+              <h3 class="font-cormorant font-light" style="font-size:1.6rem; color:var(--ivory);">{title}</h3>
+              <p class="font-amiri text-sm mt-0.5" style="color:var(--bronze);" dir="rtl">{ar}</p>
+              <div class="flex flex-wrap gap-2 mt-3">
+                {tags.map(t=><span class="label-en px-2 py-0.5 border" style="border-color:var(--black-border); color:var(--gold-muted); font-size:.55rem;">{t}</span>)}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ BEFORE/AFTER ═══ -->
+  <section class="section-pad" style="background:var(--black-warm);" id="transformations">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="label-en mb-4 reveal" style="color:var(--gold);">The OSOOL Effect</div>
+        <h2 class="headline-en mb-3 reveal reveal-delay-1">Facade Transformations</h2>
+        <p class="font-amiri reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">تحويل الواجهات — قبل وبعد</p>
+        <p class="body-luxury max-w-lg mx-auto mt-4 reveal reveal-delay-3">Drag the slider to witness a complete architectural transformation.</p>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div id="ba-slider" class="relative select-none overflow-hidden" style="height:clamp(280px,45vw,580px); cursor:ew-resize;">
+          <!-- BEFORE panel -->
+          <div class="absolute inset-0" style="background:linear-gradient(160deg,#1a1208,#2a1e10,#0d0905);">
+            <svg class="w-full h-full opacity-35" viewBox="0 0 1200 580" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+              <rect x="80" y="80" width="1040" height="500" fill="rgba(160,140,100,.25)" stroke="rgba(100,80,40,.35)" stroke-width="2"/>
+              {[150,380,610,840,1020].map((x:number)=>(
+                <rect key={x} x={x} y="180" width="150" height="280" fill="rgba(130,110,70,.18)" stroke="rgba(90,70,30,.28)" stroke-width="1.5"/>
+              ))}
+              <rect x="80" y="80" width="1040" height="25" fill="rgba(110,90,50,.3)"/>
+            </svg>
+            <div class="absolute bottom-4 left-4 px-3 py-1 label-en" style="background:rgba(8,8,8,.85); color:var(--bronze);">BEFORE</div>
+          </div>
+
+          <!-- AFTER panel -->
+          <div id="ba-after-panel" class="absolute inset-0" style="background:radial-gradient(ellipse 70% 60% at 50% 80%, rgba(201,169,110,.18) 0%, transparent 65%), linear-gradient(160deg,#0d0a06,#1a1208,#0a0805); clip-path:inset(0 50% 0 0);">
+            <svg class="w-full h-full opacity-5" viewBox="0 0 1200 580" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+              <rect x="60" y="60" width="1080" height="520" fill="url(#baV)" opacity="0.6"/>
+              {[120,250,380,820,950,1080].map((x:number)=>(
+                <g key={x}>
+                  <rect x={x} y="45" width="48" height="535" fill="url(#baC)"/>
+                  <ellipse cx={x+24} cy="50" rx="36" ry="55" fill="rgba(232,213,163,.48)"/>
+                  <rect x={x-7} y="40" width="62" height="14" fill="rgba(201,169,110,.58)"/>
+                </g>
+              ))}
+              <rect x="50" y="30" width="1100" height="42" fill="rgba(201,169,110,.5)"/>
+              <rect x="50" y="22" width="1100" height="12" fill="rgba(232,213,163,.38)"/>
+              <path d="M50 30 L600 -15 L1150 30" stroke="rgba(201,169,110,.68)" stroke-width="2.5"/>
+              {[200,520,840].map((x:number)=>(
+                <g key={x}>
+                  <rect x={x} y="340" width="120" height="200" fill="rgba(201,169,110,.18)" stroke="rgba(201,169,110,.48)" stroke-width="1.5"/>
+                  <path d={`M${x} 340 Q${x+60} 274 ${x+120} 340`} fill="rgba(201,169,110,.28)"/>
+                </g>
+              ))}
+              <ellipse cx="600" cy="580" rx="500" ry="70" fill="rgba(201,169,110,.12)"/>
+              <defs>
+                <linearGradient id="baV" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9A96E" stop-opacity="0.32"/><stop offset="100%" stop-color="#1a1208" stop-opacity="0.75"/></linearGradient>
+                <linearGradient id="baC" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0a0805"/><stop offset="35%" stop-color="#E8D5A3" stop-opacity="0.58"/><stop offset="65%" stop-color="#C9A96E" stop-opacity="0.42"/><stop offset="100%" stop-color="#0a0805"/></linearGradient>
+              </defs>
+            </svg>
+            <div class="absolute bottom-4 right-4 px-3 py-1 label-en" style="background:rgba(8,8,8,.85); color:var(--gold);">AFTER</div>
+          </div>
+
+          <!-- Slider handle -->
+          <div id="ba-handle" class="absolute top-0 bottom-0" style="left:50%; transform:translateX(-50%); width:2px; background:var(--gold); cursor:ew-resize; z-index:10;">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-11 h-11 rounded-full flex items-center justify-center" style="background:var(--gold); box-shadow:0 0 0 2px var(--black), 0 0 20px rgba(201,169,110,.4);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#080808" stroke-width="2.5"><path d="M8 5l-5 7 5 7M16 5l5 7-5 7"/></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-8">
+        <a href="/facade-transformations" class="btn-luxury-outline reveal reveal-delay-3"><span>View All Transformations</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ PHILOSOPHY QUOTE ═══ -->
+  <section class="relative overflow-hidden section-pad" style="background:var(--black);">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,169,110,.1) 0%, transparent 60%);"></div>
+    <div class="absolute inset-0 flex items-center justify-center pointer-events-none" aria-hidden="true">
+      <span class="font-cormorant font-light" style="font-size:40vw; opacity:.025; line-height:1; color:var(--gold); user-select:none;">O</span>
+    </div>
+    <div class="relative z-10 max-w-screen-md mx-auto text-center">
+      <div class="flex justify-center mb-8 reveal" style="color:var(--gold-muted); opacity:0.7;">
+        <svg width="60" height="30" viewBox="0 0 60 30" fill="none">
+          <path d="M0 15 Q15 0 30 15 Q45 30 60 15" stroke="currentColor" stroke-width="0.8"/>
+          <circle cx="30" cy="15" r="2.5" fill="currentColor"/>
+          <circle cx="10" cy="15" r="1.5" fill="currentColor" opacity="0.5"/>
+          <circle cx="50" cy="15" r="1.5" fill="currentColor" opacity="0.5"/>
+        </svg>
+      </div>
+      <blockquote class="reveal reveal-delay-1">
+        <p class="font-cormorant italic" style="font-size:clamp(1.6rem,3.2vw,3.2rem); line-height:1.35; font-weight:300; color:var(--ivory);">
+          "Architecture is not merely shelter. It is a declaration — a permanent testament to the dignity,
+          ambition, and soul of those who inhabit it."
+        </p>
+        <footer class="mt-6 label-en" style="color:var(--gold-muted);">— OSOOL Design Philosophy</footer>
+      </blockquote>
+      <p class="font-amiri mt-8 leading-relaxed reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.2rem;" dir="rtl">
+        "العمارة ليست مجرد مأوى. إنها إعلان — شهادة دائمة على كرامة وطموح وروح أصحابها."
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ GRC COLLECTION ═══ -->
+  <section class="section-pad" style="background:var(--black-deep);" id="grc">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div>
+          <div class="label-en mb-4 reveal" style="color:var(--gold);">Architectural Elements</div>
+          <h2 class="headline-en reveal reveal-delay-1">GRC Collection</h2>
+          <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">مجموعة GRC الزخرفية</p>
+        </div>
+        <a href="/grc-collection" class="btn-luxury-outline self-start reveal reveal-delay-2"><span>Full Collection</span></a>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {[
+          { name:'Corinthian Columns', ar:'أعمدة كورنثية',   sym:'𝕀' },
+          { name:'Ornate Capitals',    ar:'تيجان زخرفية',    sym:'◆' },
+          { name:'Royal Arches',       ar:'أقواس ملكية',      sym:'⌒' },
+          { name:'Luxury Cornices',    ar:'كرنيش فاخر',       sym:'▬' },
+          { name:'Balustrades',        ar:'درابزين',          sym:'≡' },
+          { name:'Wall Ornaments',     ar:'زخارف الجدران',   sym:'✦' },
+        ].map(({ name, ar, sym },i) => (
+          <a href="/grc-collection" class={`luxury-card bg-o-card p-6 text-center group reveal reveal-delay-${Math.min(i+1,6)}`}>
+            <div class="text-3xl mb-4 font-cormorant transition-opacity duration-300" style="color:var(--gold); opacity:.6;">{sym}</div>
+            <div class="font-cormorant text-sm font-light leading-tight mb-1 transition-colors duration-300 group-hover:text-gold" style="color:var(--ivory);">{name}</div>
+            <div class="font-amiri text-xs" style="color:var(--bronze);" dir="rtl">{ar}</div>
+          </a>
+        ))}
+      </div>
+
+      <!-- GRC strip -->
+      <div class="mt-8 relative overflow-hidden reveal reveal-delay-3" style="height:clamp(180px,22vw,300px);">
+        <div class="absolute inset-0" style="background:linear-gradient(90deg, var(--black-deep) 0%, transparent 12%, transparent 88%, var(--black-deep) 100%), radial-gradient(ellipse 65% 80% at 50% 50%, rgba(201,169,110,.14) 0%, transparent 70%), linear-gradient(180deg,var(--black-deep) 0%,var(--black-warm) 50%,var(--black-deep) 100%);"></div>
+        <svg class="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 1400 300" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+          {[70,170,270,370,470,570,670,770,870,970,1070,1170,1270].map((x:number)=>(
+            <g key={x}>
+              <rect x={x} y="18" width="38" height="264" fill="url(#gCol)"/>
+              <ellipse cx={x+19} cy="22" rx="30" ry="48" fill="rgba(232,213,163,.42)"/>
+              <rect x={x-5} y="14" width="48" height="12" fill="rgba(201,169,110,.52)"/>
+            </g>
+          ))}
+          <rect x="0" y="278" width="1400" height="24" fill="rgba(201,169,110,.28)"/>
+          <rect x="0" y="7" width="1400" height="12" fill="rgba(201,169,110,.38)"/>
+          <defs>
+            <linearGradient id="gCol" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#1a1208"/>
+              <stop offset="35%" stop-color="#E8D5A3" stop-opacity="0.58"/>
+              <stop offset="65%" stop-color="#C9A96E" stop-opacity="0.42"/>
+              <stop offset="100%" stop-color="#1a1208"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <p class="font-cormorant italic text-center" style="color:var(--ivory); font-size:clamp(1.1rem,2.2vw,2.2rem);">
+            Over <span style="color:var(--gold);">500+</span> premium GRC decorative elements available
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ TESTIMONIALS ═══ -->
+  <section class="section-pad" id="testimonials">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="label-en mb-4 reveal" style="color:var(--gold);">Client Voices</div>
+        <h2 class="headline-en mb-3 reveal reveal-delay-1">What Our Clients Say</h2>
+        <p class="font-amiri reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">شهادات عملائنا</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { q:'OSOOL transformed our villa facade into something I couldn\'t have imagined. Every neighbor stops to admire it. The GRC columns are museum quality.', aq:'أصول حوّلت واجهة فيلتنا إلى شيء لم أكن أتخيله. كل جار يتوقف ليعجب بها. الأعمدة ترقى إلى مستوى المتاحف.', name:'H.H. Sheikh Fahad Al-Rashidi', aname:'سعادة الشيخ فهد الراشدي', role:'Private Villa, Riyadh' },
+          { q:'The AI visualization experience they gave us was extraordinary — we could see every cornice before committing. The result exceeded all expectations.', aq:'تجربة التصور بالذكاء الاصطناعي كانت استثنائية — شاهدنا كل كورنيش قبل الالتزام. النتيجة فاقت كل التوقعات.', name:'Eng. Mohammed Al-Zahrani', aname:'م. محمد الزهراني', role:'Palace Project, Jeddah' },
+          { q:'Working with OSOOL is unlike any contractor I\'ve experienced. They speak architecture as an art form. The neoclassical details were breathtaking.', aq:'العمل مع أصول لا يشبه أي مقاول آخر. يتحدثون عن العمارة كفن. التفاصيل الكلاسيكية كانت مذهلة.', name:'Mrs. Noura Al-Qahtani', aname:'السيدة نورة القحطاني', role:'Luxury Residence, Dubai' },
+        ].map(({ q, aq, name, aname, role },i) => (
+          <div class={`luxury-card bg-o-card p-8 md:p-10 reveal reveal-delay-${i+1}`}>
+            <div class="font-cormorant text-5xl leading-none font-light mb-4" style="color:var(--gold);">"</div>
+            <p class="body-luxury text-sm italic leading-relaxed mb-5">"{q}"</p>
+            <p class="font-amiri text-sm leading-relaxed mb-6" style="color:var(--bronze);" dir="rtl">"{aq}"</p>
+            <div class="pt-5 border-t" style="border-color:var(--black-border);">
+              <div class="font-cormorant font-light" style="color:var(--ivory);">{name}</div>
+              <div class="font-amiri text-sm mt-0.5" style="color:var(--bronze);" dir="rtl">{aname}</div>
+              <div class="label-en mt-1" style="color:var(--gold-muted); font-size:.58rem;">{role}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ CTA ═══ -->
+  <section class="relative overflow-hidden section-pad" style="background:var(--black-warm);">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 80% 60% at 50% 100%, rgba(201,169,110,.12) 0%, transparent 60%);"></div>
+    <div class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/3 pointer-events-none" aria-hidden="true">
+      <span class="font-cormorant font-light" style="font-size:38vw; opacity:.04; line-height:1; color:var(--gold);">O</span>
+    </div>
+    <div class="relative z-10 max-w-screen-lg mx-auto text-center">
+      <div class="label-en mb-6 reveal" style="color:var(--gold);">Begin Your Transformation</div>
+      <h2 class="font-cormorant font-light reveal reveal-delay-1" style="font-size:clamp(2.2rem,5vw,5.5rem); line-height:1.08; letter-spacing:-.02em; color:var(--ivory);">
+        Your Facade Deserves<br/><em class="text-gold" style="font-style:italic;">Royal Treatment</em>
+      </h2>
+      <p class="font-amiri mt-4 mb-5 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.5rem;" dir="rtl">واجهتك تستحق المعاملة الملكية</p>
+      <p class="body-luxury max-w-xl mx-auto mb-10 reveal reveal-delay-3">
+        Schedule a complimentary consultation with our senior architectural designers.
+        We'll present a luxury vision tailored specifically to your home.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-4">
+        <a href="/contact" class="btn-luxury">
+          <span>Book Free Consultation</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="https://wa.me/966500000000" target="_blank" rel="noopener noreferrer" class="btn-luxury-outline"><span>WhatsApp Us Now</span></a>
+      </div>
+      <p class="mt-8 font-amiri reveal reveal-delay-5" style="color:var(--bronze); font-size:1rem;" dir="rtl">احجز استشارة مجانية مع فريق مصمميك المعماريين</p>
+    </div>
+  </section>
+
 </Layout>
+
+<style>
+  @keyframes scrollLine {
+    0%   { transform: translateY(-100%); }
+    100% { transform: translateY(200%); }
+  }
+</style>
+
+<script>
+  // Before/After Slider
+  const slider = document.getElementById('ba-slider');
+  const after  = document.getElementById('ba-after-panel');
+  const handle = document.getElementById('ba-handle');
+
+  if (slider && after && handle) {
+    let dragging = false;
+
+    const move = (clientX: number) => {
+      const rect = slider.getBoundingClientRect();
+      const pct  = Math.max(5, Math.min(95, ((clientX - rect.left) / rect.width) * 100));
+      handle.style.left = pct + '%';
+      after.style.clipPath = `inset(0 ${100 - pct}% 0 0)`;
+    };
+
+    handle.addEventListener('mousedown',  () => { dragging = true; });
+    handle.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+    window.addEventListener('mousemove',  e => { if (dragging) move(e.clientX); });
+    window.addEventListener('touchmove',  e => { if (dragging) move(e.touches[0].clientX); }, { passive: true });
+    window.addEventListener('mouseup',   () => { dragging = false; });
+    window.addEventListener('touchend',  () => { dragging = false; });
+    slider.addEventListener('click',      e => move(e.clientX));
+  }
+</script>

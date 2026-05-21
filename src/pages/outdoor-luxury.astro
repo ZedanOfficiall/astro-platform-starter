@@ -1,0 +1,216 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const outdoorServices = [
+  {
+    title: 'Luxury Pergolas',
+    ar: 'المظلات الفاخرة',
+    desc: 'Architectural pergolas that extend the palace facade language into outdoor living. Available in neoclassical, Arabic, and contemporary luxury profiles.',
+    features: ['GRC column system', 'Ornate beam details', 'Custom roofing options', 'Integrated lighting', 'Climbing plant infrastructure'],
+    gradient: 'radial-gradient(ellipse 60% 50% at 50% 80%, rgba(201,169,110,.18) 0%, transparent 62%), linear-gradient(150deg,#0d0a06,#1a1208,#0a0705)',
+  },
+  {
+    title: 'Majlis Architecture',
+    ar: 'العمارة المجلسية',
+    desc: 'The majlis is the soul of Arabic hospitality. We design standalone majlis structures that combine cultural authenticity with luxury material execution.',
+    features: ['Traditional majlis proportions', 'Arched entry system', 'Ornamental ceiling detail', 'Climate integration', 'Privacy screen design'],
+    gradient: 'radial-gradient(ellipse 55% 50% at 40% 75%, rgba(139,115,85,.2) 0%, transparent 60%), linear-gradient(150deg,#120a06,#1e1008,#100805)',
+  },
+  {
+    title: 'Palace Entrance Gates',
+    ar: 'بوابات مداخل القصور',
+    desc: 'The first architectural statement visitors experience. Our gate systems combine monumental structure with exquisite ornamental detail.',
+    features: ['Triumphal arch options', 'Twin guard pavilions', 'Automated gate integration', 'Custom ironwork', 'Landscape integration'],
+    gradient: 'radial-gradient(ellipse 65% 50% at 60% 80%, rgba(201,169,110,.16) 0%, transparent 64%), linear-gradient(150deg,#0a0a0d,#101018,#080808)',
+  },
+  {
+    title: 'Outdoor Pavilions',
+    ar: 'الجناح الخارجي',
+    desc: 'Four-season outdoor pavilion structures for entertaining, dining, and landscape focal points. Designed as architectural objects in their own right.',
+    features: ['Full structural design', 'GRC ornamental system', 'Weather protection options', 'Outdoor kitchen integration', 'Landscape coordination'],
+    gradient: 'linear-gradient(150deg,#081208,#0a1e0a,#080808)',
+  },
+  {
+    title: 'Boundary Wall Design',
+    ar: 'تصميم الجدران الحدودية',
+    desc: 'Boundary walls are not barriers — they are the first facade your visitors see. We transform perimeter walls into architectural statements.',
+    features: ['Wall cladding system', 'Pilaster rhythm design', 'Decorative cap & coping', 'Gate pier design', 'Lighting integration'],
+    gradient: 'linear-gradient(150deg,#1a0808,#200d0d,#100808)',
+  },
+  {
+    title: 'Pool Architecture',
+    ar: 'عمارة المسابح',
+    desc: 'The pool area as architectural composition. We design pool surrounds, water features, and poolside structures as extensions of the villa\'s luxury identity.',
+    features: ['Pool house design', 'Cascade & water feature', 'Decorative pool surround', 'Cabana architecture', 'Night lighting design'],
+    gradient: 'radial-gradient(ellipse 55% 45% at 50% 70%, rgba(100,130,180,.15) 0%, transparent 60%), linear-gradient(150deg,#08080d,#0a0a18,#080808)',
+  },
+];
+---
+
+<Layout title="OSOOL Outdoor Luxury — Pergolas, Majlis & Palace Entrances | العمارة الخارجية" page="outdoor">
+
+  <!-- HERO -->
+  <section class="relative min-h-[65vh] flex items-end overflow-hidden" style="padding-top:100px;">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 70% 55% at 40% 85%, rgba(201,169,110,.14) 0%, transparent 65%), linear-gradient(180deg,#080808 0%,#1a1208 55%,#080808 100%);"></div>
+    <div class="absolute inset-0 flex items-end overflow-hidden pointer-events-none" aria-hidden="true">
+      <!-- Outdoor pergola silhouette -->
+      <svg viewBox="0 0 1440 500" class="absolute bottom-0 w-full opacity-12" preserveAspectRatio="xMidYMax slice" fill="none">
+        <!-- Pergola structure -->
+        {[100,250,400,550,700,850,1000,1150,1300].map((x:number)=>(
+          <rect key={x} x={x} y="100" width="28" height="400" fill="rgba(201,169,110,.5)"/>
+        ))}
+        <!-- Top beams -->
+        <rect x="80" y="80" width="1280" height="25" fill="rgba(201,169,110,.55)"/>
+        <rect x="80" y="70" width="1280" height="14" fill="rgba(232,213,163,.4)"/>
+        {[80,200,320,440,560,680,800,920,1040,1160,1280].map((x:number)=>(
+          <rect key={x} x={x} y="82" width="14" height="280" fill="rgba(201,169,110,.25)"/>
+        ))}
+        <!-- Cross beams -->
+        {[140,220,300,380].map((y:number)=>(
+          <rect key={y} x="80" y={y} width="1280" height="8" fill="rgba(201,169,110,.18)"/>
+        ))}
+      </svg>
+    </div>
+    <div class="relative z-10 section-pad w-full max-w-screen-xl mx-auto pb-24">
+      <div class="label-en mb-6 reveal" style="color:var(--gold);">Outdoor Architecture</div>
+      <h1 class="display-en mb-4 reveal reveal-delay-1">OUTDOOR<br/><em style="font-style:italic; color:var(--gold);">LUXURY</em></h1>
+      <p class="display-ar reveal reveal-delay-2" style="font-size:clamp(1.8rem,3.5vw,4rem);">العمارة الخارجية الفاخرة</p>
+      <p class="body-luxury max-w-xl mt-8 reveal reveal-delay-3">
+        Luxury does not stop at the building's wall. We extend the palace language into every outdoor space — from gate to garden, pergola to pool.
+      </p>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="section-pad" style="background:var(--black-deep);">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="label-en mb-6 reveal" style="color:var(--gold);">The Outdoor Approach</div>
+        <h2 class="headline-en mb-6 reveal reveal-delay-1">The Palace Extends<br/>Into the Landscape</h2>
+        <div class="space-y-5 reveal reveal-delay-2">
+          <p class="body-luxury">
+            The greatest residences in Arabic architectural history understood something that modern villas often miss:
+            the exterior landscape is not just a garden — it is a series of architectural rooms, each with its own
+            character, purpose, and grandeur.
+          </p>
+          <p class="body-luxury">
+            OSOOL designs outdoor spaces as architectural compositions. Every pergola column echoes the villa facade.
+            Every gate pier quotes the entrance portico. Every boundary wall maintains the decorative language of the
+            main building. The result is a total environment — a complete estate identity.
+          </p>
+          <p class="font-amiri leading-loose" style="color:var(--sandstone); font-size:1.1rem;" dir="rtl">
+            أعظم المساكن في التاريخ المعماري العربي فهمت أن المشهد الخارجي ليس مجرد حديقة — بل هو سلسلة من الغرف المعمارية، كل منها بطابعه وغايته وروعته.
+          </p>
+        </div>
+      </div>
+      <!-- Decorative composition -->
+      <div class="reveal reveal-delay-2" style="min-height:400px; position:relative;">
+        <div style="background:var(--black-card); border:1px solid var(--black-border); height:400px; position:relative; overflow:hidden;">
+          <svg class="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 500 400" fill="none" aria-hidden="true">
+            <!-- Pergola illustration -->
+            {[60,130,200,270,340,410].map((x:number)=>(
+              <g key={x}>
+                <rect x={x} y="60" width="22" height="320" fill="url(#outCol)"/>
+                <ellipse cx={x+11} cy="64" rx="18" ry="28" fill="rgba(232,213,163,.4)"/>
+              </g>
+            ))}
+            <rect x="40" y="45" width="420" height="20" fill="rgba(201,169,110,.5)"/>
+            <rect x="40" y="38" width="420" height="12" fill="rgba(232,213,163,.35)"/>
+            {[55,80,105,130,155,180].map((x:number)=>(
+              <rect key={x} x={x} y="48" width="10" height="200" fill="rgba(201,169,110,.2)"/>
+            ))}
+            {[100,140,180].map((y:number)=>(
+              <rect key={y} x="40" y={y} width="420" height="6" fill="rgba(201,169,110,.15)"/>
+            ))}
+            <!-- Ground shadow -->
+            <ellipse cx="250" cy="400" rx="220" ry="30" fill="rgba(201,169,110,.08)"/>
+            <!-- Plants suggestion -->
+            {[55,130,210,290,370,440].map((x:number)=>(
+              <path key={x} d={`M${x} 380 Q${x-12} 320 ${x} 340 Q${x+12} 320 ${x} 380`} fill="rgba(100,120,80,.3)"/>
+            ))}
+            <defs>
+              <linearGradient id="outCol" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#0a0805"/>
+                <stop offset="30%" stop-color="#E8D5A3" stop-opacity="0.55"/>
+                <stop offset="70%" stop-color="#C9A96E" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#0a0805"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div class="absolute bottom-6 left-6 right-6 text-center">
+            <p class="font-cormorant italic" style="color:var(--ivory); font-size:1.1rem;">"The garden as palace extension"</p>
+            <p class="font-amiri mt-1 text-sm" style="color:var(--bronze);" dir="rtl">الحديقة كامتداد للقصر</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES GRID -->
+  <section class="section-pad" style="background:var(--black);">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="label-en mb-4 reveal" style="color:var(--gold);">Outdoor Offerings</div>
+        <h2 class="headline-en reveal reveal-delay-1">Outdoor Luxury Services</h2>
+        <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">خدمات العمارة الخارجية الفاخرة</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        {outdoorServices.map(({ title, ar, desc, features, gradient },i) => (
+          <div class={`img-zoom-wrap relative overflow-hidden group reveal reveal-delay-${Math.min((i%3)+1,3)}`} style="min-height:420px;">
+            <!-- Background -->
+            <div class="img-fill absolute inset-0 transition-transform duration-700" style={`background:${gradient};`}></div>
+            <!-- SVG decoration -->
+            <svg class="absolute inset-0 w-full h-full opacity-25" viewBox="0 0 400 420" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+              {[60,140,220,300,360].map((x:number)=>(
+                <g key={x}>
+                  <rect x={x} y="40" width="25" height="380" fill="url(#srvCol)"/>
+                  <ellipse cx={x+12} cy="44" rx="20" ry="32" fill="rgba(232,213,163,.38)"/>
+                </g>
+              ))}
+              <rect x="40" y="30" width="320" height="18" fill="rgba(201,169,110,.45)"/>
+              <ellipse cx="200" cy="420" rx="200" ry="40" fill="rgba(201,169,110,.08)"/>
+              <defs>
+                <linearGradient id="srvCol" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#0a0805"/>
+                  <stop offset="35%" stop-color="#E8D5A3" stop-opacity="0.5"/>
+                  <stop offset="65%" stop-color="#C9A96E" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#0a0805"/>
+                </linearGradient>
+              </defs>
+            </svg>
+            <!-- Gradient overlay -->
+            <div class="absolute inset-0" style="background:linear-gradient(to top, var(--black) 0%, rgba(8,8,8,.7) 40%, transparent 70%);"></div>
+            <!-- Content -->
+            <div class="absolute bottom-0 left-0 right-0 p-8">
+              <h3 class="font-cormorant font-light text-2xl mb-1 group-hover:text-gold transition-colors duration-300" style="color:var(--ivory);">{title}</h3>
+              <p class="font-amiri text-sm mb-4" style="color:var(--bronze);" dir="rtl">{ar}</p>
+              <p class="body-luxury text-sm leading-relaxed mb-4">{desc}</p>
+              <ul class="space-y-1 opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                {features.map(f=>(
+                  <li class="flex items-center gap-2 body-luxury text-xs">
+                    <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold); flex-shrink:0;"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad" style="background:var(--black-warm);">
+    <div class="max-w-screen-lg mx-auto text-center">
+      <h2 class="headline-en mb-4 reveal">Design Your Outdoor World</h2>
+      <p class="font-amiri mb-8 reveal reveal-delay-1" style="color:var(--sandstone); font-size:1.5rem;" dir="rtl">صمّم عالمك الخارجي الفاخر</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-2">
+        <a href="/contact" class="btn-luxury"><span>Book Outdoor Consultation</span></a>
+        <a href="/portfolio" class="btn-luxury-outline"><span>View Outdoor Projects</span></a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
