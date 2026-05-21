@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="OSOOL — Luxury Architectural Facades & GRC Solutions | أصول" page="home">
@@ -79,11 +80,11 @@ import Layout from '../layouts/Layout.astro';
       </p>
 
       <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 reveal reveal-delay-4">
-        <a href="/portfolio" class="btn-luxury">
+        <a href={`${base}/portfolio`} class="btn-luxury">
           <span>Explore Our Work</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/contact" class="btn-luxury-outline"><span>Get Consultation</span></a>
+        <a href={`${base}/contact`} class="btn-luxury-outline"><span>Get Consultation</span></a>
         <div class="hidden md:flex items-center gap-3 ml-2">
           <div class="h-px w-10" style="background: var(--gold); opacity:0.5;"></div>
           <span class="font-amiri text-bronze text-sm" dir="rtl">احجز استشارتك</span>
@@ -149,7 +150,7 @@ import Layout from '../layouts/Layout.astro';
           <h2 class="headline-en reveal reveal-delay-1">Our Services</h2>
           <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">خدماتنا</p>
         </div>
-        <a href="/services" class="btn-luxury-outline self-start reveal reveal-delay-2"><span>View All Services</span></a>
+        <a href={`${base}/services`} class="btn-luxury-outline self-start reveal reveal-delay-2"><span>View All Services</span></a>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style="background: var(--black-border);">
@@ -188,7 +189,7 @@ import Layout from '../layouts/Layout.astro';
           <h2 class="headline-en reveal reveal-delay-1">Featured Projects</h2>
           <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">أبرز أعمالنا</p>
         </div>
-        <a href="/portfolio" class="btn-luxury-outline self-start reveal reveal-delay-2"><span>Full Portfolio</span></a>
+        <a href={`${base}/portfolio`} class="btn-luxury-outline self-start reveal reveal-delay-2"><span>Full Portfolio</span></a>
       </div>
 
       <!-- Large hero project -->
@@ -241,7 +242,7 @@ import Layout from '../layouts/Layout.astro';
               ))}
             </div>
           </div>
-          <a href="/portfolio" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center border opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:var(--black-card); border-color:var(--black-border); color:var(--gold);" aria-label="View project">
+          <a href={`${base}/portfolio`} class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center border opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:var(--black-card); border-color:var(--black-border); color:var(--gold);" aria-label="View project">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
           </a>
         </div>
@@ -254,7 +255,7 @@ import Layout from '../layouts/Layout.astro';
           { title:'Khalij Palace',      ar:'قصر الخليج',  loc:'Kuwait · 2023',  tags:['Palace Entrance','Full Facade'], bg:'linear-gradient(135deg,#0a0d1a,#081220,#080808)' },
           { title:'Desert Retreat',     ar:'واحة الصحراء', loc:'Dubai · 2023',   tags:['Outdoor','Luxury'], bg:'linear-gradient(135deg,#120808,#1a0a06,#080808)' },
         ].map(({ title, ar, loc, tags, bg },i) => (
-          <a href="/portfolio" class={`img-zoom-wrap relative overflow-hidden block reveal reveal-delay-${i+2}`} style={`height:clamp(220px,28vw,360px);`}>
+          <a href={`${base}/portfolio`} class={`img-zoom-wrap relative overflow-hidden block reveal reveal-delay-${i+2}`} style={`height:clamp(220px,28vw,360px);`}>
             <div class="img-fill absolute inset-0 transition-transform duration-700" style={`background:${bg};`}></div>
             <svg class="absolute inset-0 w-full h-full opacity-35" viewBox="0 0 400 360" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
               <rect x="35" y="50" width="330" height="310" fill="url(#smGrad)"/>
@@ -343,7 +344,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="text-center mt-8">
-        <a href="/facade-transformations" class="btn-luxury-outline reveal reveal-delay-3"><span>View All Transformations</span></a>
+        <a href={`${base}/facade-transformations`} class="btn-luxury-outline reveal reveal-delay-3"><span>View All Transformations</span></a>
       </div>
     </div>
   </section>
@@ -385,7 +386,7 @@ import Layout from '../layouts/Layout.astro';
           <h2 class="headline-en reveal reveal-delay-1">GRC Collection</h2>
           <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">مجموعة GRC الزخرفية</p>
         </div>
-        <a href="/grc-collection" class="btn-luxury-outline self-start reveal reveal-delay-2"><span>Full Collection</span></a>
+        <a href={`${base}/grc-collection`} class="btn-luxury-outline self-start reveal reveal-delay-2"><span>Full Collection</span></a>
       </div>
 
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -397,7 +398,7 @@ import Layout from '../layouts/Layout.astro';
           { name:'Balustrades',        ar:'درابزين',          sym:'≡' },
           { name:'Wall Ornaments',     ar:'زخارف الجدران',   sym:'✦' },
         ].map(({ name, ar, sym },i) => (
-          <a href="/grc-collection" class={`luxury-card bg-o-card p-6 text-center group reveal reveal-delay-${Math.min(i+1,6)}`}>
+          <a href={`${base}/grc-collection`} class={`luxury-card bg-o-card p-6 text-center group reveal reveal-delay-${Math.min(i+1,6)}`}>
             <div class="text-3xl mb-4 font-cormorant transition-opacity duration-300" style="color:var(--gold); opacity:.6;">{sym}</div>
             <div class="font-cormorant text-sm font-light leading-tight mb-1 transition-colors duration-300 group-hover:text-gold" style="color:var(--ivory);">{name}</div>
             <div class="font-amiri text-xs" style="color:var(--bronze);" dir="rtl">{ar}</div>
@@ -483,7 +484,7 @@ import Layout from '../layouts/Layout.astro';
         We'll present a luxury vision tailored specifically to your home.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-4">
-        <a href="/contact" class="btn-luxury">
+        <a href={`${base}/contact`} class="btn-luxury">
           <span>Book Free Consultation</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>

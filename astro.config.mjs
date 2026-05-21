@@ -11,4 +11,6 @@ export default defineConfig({
         })
     ],
     output: 'static',
+    site: 'https://zedanofficiall.github.io',
+    base: '/astro-platform-starter',
 });

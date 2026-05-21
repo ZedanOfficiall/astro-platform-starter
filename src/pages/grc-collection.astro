@@ -79,6 +79,7 @@ const categories = [
     ],
   },
 ];
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="OSOOL GRC Collection — Luxury Architectural Elements | مجموعة GRC" page="grc">
@@ -188,7 +189,7 @@ const categories = [
               <div class="font-cormorant font-light text-3xl" style="color:var(--gold);">{count}</div>
               <div class="label-en" style="color:var(--gold-muted); font-size:.6rem;">Elements</div>
             </div>
-            <a href="/contact" class="btn-luxury-outline"><span>Specify Elements</span></a>
+            <a href={`${base}/contact`} class="btn-luxury-outline"><span>Specify Elements</span></a>
           </div>
         </div>
 
