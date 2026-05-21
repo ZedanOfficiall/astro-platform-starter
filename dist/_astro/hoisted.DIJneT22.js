@@ -1,0 +1,1 @@
+import"./hoisted.CZbf3OQZ.js";const i=document.querySelectorAll(".diff img");i.forEach(e=>{e.complete?o(e):e.addEventListener("load",()=>{o(e)})});function o(e){const t=window?.performance?.getEntriesByName(e.currentSrc)?.[0];if(t&&t.encodedBodySize){const n=e.previousElementSibling;n.classList.remove("hidden"),n.textContent=`Size: ${Math.ceil(t.encodedBodySize/1024)}KB`}}

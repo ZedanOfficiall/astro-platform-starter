@@ -1,0 +1,1 @@
+import"./hoisted.CZbf3OQZ.js";function a(t){fetch("/api/revalidate",{method:"POST",body:JSON.stringify({tags:[t]}),headers:{"Content-Type":"application/json"}}),alert(`Invalidated tag: ${t}`)}const n=document.querySelectorAll("button.revalidate-button")[0];n.addEventListener("click",t=>{const e=t.target.getAttribute("data-tag");a(e)});
