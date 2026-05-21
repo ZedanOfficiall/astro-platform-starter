@@ -1,0 +1,191 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const services = [
+  {
+    num: '01',
+    title: 'Luxury Facade Design',
+    ar: 'تصميم الواجهات الفاخرة',
+    tagline: 'Where the first impression becomes a lasting monument',
+    desc: 'We design complete architectural facades that command presence, respect, and admiration. Our neoclassical and Arabic-luxury design language transforms any residential or commercial building into a landmark.',
+    features: ['Full 3D facade modeling', 'Material specification & sourcing', 'Classical proportion systems', 'Lighting integration design', 'Cultural pattern integration', 'Regulatory compliance review'],
+    icon: '🏛',
+  },
+  {
+    num: '02',
+    title: 'GRC Decorative Systems',
+    ar: 'أنظمة GRC الزخرفية',
+    tagline: 'The art of architectural ornament, perfected',
+    desc: 'Glass Reinforced Concrete (GRC) is the material of palace architecture — lightweight yet monumental, detailed yet durable. Our GRC collection includes over 500 decorative elements, all customizable to your project.',
+    features: ['Corinthian & Ionic columns', 'Custom capital designs', 'Cornices & entablatures', 'Window & door surrounds', 'Balustrades & railings', 'Domes & cupolas'],
+    icon: '⬡',
+  },
+  {
+    num: '03',
+    title: 'Facade Transformations',
+    ar: 'تحويل الواجهات',
+    tagline: 'From ordinary to iconic — in one complete renovation',
+    desc: 'Our transformation service takes existing buildings and elevates them to luxury landmarks. Using GRC cladding, new architectural layering, and complete replanning of the facade language, we create dramatic before-and-after results.',
+    features: ['Complete facade assessment', 'Structural compatibility analysis', 'Layer-by-layer transformation plan', 'GRC cladding installation', 'Full project management', 'Photographic documentation'],
+    icon: '✦',
+  },
+  {
+    num: '04',
+    title: 'Palace Entrance Design',
+    ar: 'تصميم مداخل القصور',
+    tagline: 'The threshold that announces everything that follows',
+    desc: 'The entrance gate and arrival sequence of a residence is its most powerful architectural statement. We design monumental entrance experiences that set the tone for the entire property — from gate to door.',
+    features: ['Gate & gatehouse design', 'Grand archway systems', 'Guard house integration', 'Lighting & electrical planning', 'Intercom & security integration', 'Landscape threshold design'],
+    icon: '◉',
+  },
+  {
+    num: '05',
+    title: 'Outdoor Luxury Structures',
+    ar: 'المنشآت الخارجية الفاخرة',
+    tagline: 'Extending the palace language into the landscape',
+    desc: 'Luxury does not stop at the building\'s exterior wall. We design pergolas, pavilions, majlis structures, and outdoor entertainment architectures that seamlessly continue the facade\'s design language into outdoor living.',
+    features: ['Luxury pergola design', 'Majlis architectural concepts', 'Outdoor pavilions & gazebos', 'Swimming pool architecture', 'Boundary wall design', 'Outdoor lighting systems'],
+    icon: '◈',
+  },
+  {
+    num: '06',
+    title: 'AI Architectural Visualization',
+    ar: 'التصور المعماري بالذكاء الاصطناعي',
+    tagline: 'See your palace before the first stone is laid',
+    desc: 'Using generative AI tools and photorealistic rendering, we produce cinematic visualizations of your project that eliminate uncertainty and inspire confidence. You approve the vision before we begin fabrication.',
+    features: ['AI concept generation', 'Photorealistic day & night renders', '360° virtual walkthroughs', 'Material & color exploration', 'Before/after comparisons', 'Video flythrough presentations'],
+    icon: '◎',
+  },
+  {
+    num: '07',
+    title: 'Luxury Villa Identity',
+    ar: 'هوية الفيلا الفاخرة',
+    tagline: 'Every great villa deserves its own architectural character',
+    desc: 'Beyond the facade, we develop a complete architectural identity for your villa — a coherent design language that runs from the street gate through the garden, the entrance hall, and every exterior element of your home.',
+    features: ['Holistic design language development', 'Exterior material palette', 'Color & texture system', 'Ornamental hierarchy', 'Signage & name plate design', 'Brand guidelines for the property'],
+    icon: '◇',
+  },
+  {
+    num: '08',
+    title: 'Architectural Consultation',
+    ar: 'الاستشارة المعمارية',
+    tagline: 'Expert direction without the full project commitment',
+    desc: 'Our senior architects offer focused consultations for clients who need expert direction on facade choices, GRC specifications, transformation strategies, or design problem-solving. Available remotely or on-site.',
+    features: ['1-hour focused consultation', 'Facade assessment review', 'Material recommendation', 'Design problem diagnosis', 'Budget optimization advice', 'Contractor briefing support'],
+    icon: '○',
+  },
+];
+---
+
+<Layout title="OSOOL Services — Luxury Facade & GRC Solutions | خدمات أصول" page="services">
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-end overflow-hidden" style="padding-top:100px;">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 70% 55% at 30% 85%, rgba(201,169,110,.14) 0%, transparent 65%), linear-gradient(160deg,#080808 0%,#1a1208 50%,#080808 100%);"></div>
+    <div class="absolute inset-0 flex items-center justify-start overflow-hidden pointer-events-none" aria-hidden="true">
+      <span class="font-cormorant font-light" style="font-size:55vw; opacity:.03; line-height:.8; color:var(--gold); margin-left:-10vw;">S</span>
+    </div>
+    <div class="relative z-10 section-pad w-full max-w-screen-xl mx-auto pb-24">
+      <div class="label-en mb-6 reveal" style="color:var(--gold);">What We Offer</div>
+      <h1 class="display-en mb-4 reveal reveal-delay-1">OUR<br/><em style="font-style:italic; color:var(--gold);">SERVICES</em></h1>
+      <p class="display-ar reveal reveal-delay-2" style="font-size:clamp(2rem,4vw,4.5rem);">خدماتنا</p>
+      <p class="body-luxury max-w-xl mt-8 reveal reveal-delay-3">
+        Eight specialized disciplines, one unified goal: creating the most extraordinary architectural facades in the Gulf.
+      </p>
+    </div>
+  </section>
+
+  <!-- SERVICES LIST -->
+  <section class="section-pad" style="background:var(--black-deep);">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="space-y-4">
+        {services.map(({ num, title, ar, tagline, desc, features, icon },i) => (
+          <div class={`luxury-card bg-o-card overflow-hidden reveal reveal-delay-${Math.min((i%3)+1,3)}`}>
+            <details class="group">
+              <summary class="flex items-center justify-between p-8 md:p-10 cursor-pointer list-none">
+                <div class="flex items-center gap-6">
+                  <span class="font-cormorant font-light text-2xl" style="color:var(--gold); opacity:.5;">{num}</span>
+                  <div>
+                    <h2 class="font-cormorant font-light text-xl md:text-2xl group-hover:text-gold transition-colors duration-300" style="color:var(--ivory);">{icon} &nbsp;{title}</h2>
+                    <p class="font-amiri text-sm mt-1" style="color:var(--bronze);" dir="rtl">{ar}</p>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4 flex-shrink-0">
+                  <span class="hidden md:block font-cormorant italic text-sm" style="color:var(--gold-muted);">{tagline}</span>
+                  <div class="w-8 h-8 border flex items-center justify-center transition-transform duration-300 group-open:rotate-45" style="border-color:var(--black-border); color:var(--gold);">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                  </div>
+                </div>
+              </summary>
+              <div class="px-8 md:px-10 pb-10 border-t" style="border-color:var(--black-border);">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 pt-8">
+                  <div>
+                    <p class="body-luxury mb-6 leading-relaxed">{desc}</p>
+                    <a href="/contact" class="btn-luxury inline-flex">
+                      <span>Request This Service</span>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                  <div>
+                    <div class="label-en mb-4" style="color:var(--gold);">What's Included</div>
+                    <ul class="space-y-3">
+                      {features.map(f => (
+                        <li class="flex items-start gap-3 body-luxury text-sm">
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="flex-shrink-0 mt-1" style="color:var(--gold);"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                          {f}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </details>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="section-pad">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="text-center mb-16">
+        <div class="label-en mb-4 reveal" style="color:var(--gold);">How We Work</div>
+        <h2 class="headline-en reveal reveal-delay-1">Our Design Process</h2>
+        <p class="font-amiri mt-2 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.8rem;" dir="rtl">عملية التصميم لدينا</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {[
+          { step:'01', title:'Discovery', ar:'الاستكشاف', desc:'We begin with a detailed consultation to understand your vision, property, preferences, and budget. No judgement — only possibility.' },
+          { step:'02', title:'Design', ar:'التصميم', desc:'Our team develops multiple facade concepts using AI-assisted exploration and classical architectural drawing, refined to your input.' },
+          { step:'03', title:'Visualization', ar:'التصور', desc:'Photorealistic renders and 360° walkthroughs bring your chosen design to life. You approve every element before fabrication.' },
+          { step:'04', title:'Delivery', ar:'التسليم', desc:'We manage fabrication, logistics, and installation with a dedicated project team, delivering on schedule and to specification.' },
+        ].map(({ step, title, ar, desc },i) => (
+          <div class={`text-center reveal reveal-delay-${i+1}`}>
+            <div class="font-cormorant font-light mb-4" style="font-size:5rem; color:var(--gold); opacity:.25; line-height:1;">{step}</div>
+            <div class="h-px mb-6" style="background:linear-gradient(90deg,transparent,var(--gold-muted),transparent); opacity:0.4;"></div>
+            <h3 class="font-cormorant text-xl font-light mb-1" style="color:var(--ivory);">{title}</h3>
+            <p class="font-amiri text-sm mb-4" style="color:var(--bronze);" dir="rtl">{ar}</p>
+            <p class="body-luxury text-sm leading-relaxed">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad" style="background:var(--black-warm);">
+    <div class="max-w-screen-lg mx-auto text-center">
+      <h2 class="headline-en mb-4 reveal">Ready to Begin?</h2>
+      <p class="font-amiri mb-8 reveal reveal-delay-1" style="color:var(--sandstone); font-size:1.5rem;" dir="rtl">هل أنت مستعد للبدء؟</p>
+      <p class="body-luxury max-w-md mx-auto mb-10 reveal reveal-delay-2">
+        Contact us for a complimentary consultation. We'll review your project and present what OSOOL can achieve.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-3">
+        <a href="/contact" class="btn-luxury"><span>Book Consultation</span></a>
+        <a href="/portfolio" class="btn-luxury-outline"><span>See Our Work</span></a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,300 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const categories = [
+  {
+    id: 'columns',
+    title: 'Columns & Pillars',
+    ar: 'الأعمدة والركائز',
+    icon: '𝕀',
+    count: '85+',
+    items: [
+      { name: 'Corinthian Column', ar: 'العمود الكورنثي', code: 'GRC-C-001', scale: 'Full Height', desc: 'The pinnacle of classical column design — acanthus leaf capital with full fluted shaft.' },
+      { name: 'Ionic Column', ar: 'العمود الأيوني', code: 'GRC-C-002', scale: 'Full Height', desc: 'Elegant scroll volutes and refined proportions. Perfect for entrance porticos.' },
+      { name: 'Doric Column', ar: 'العمود الدوري', code: 'GRC-C-003', scale: 'Full Height', desc: 'The original classical order — austere, masculine, monumental. No base, raw capital.' },
+      { name: 'Composite Pilaster', ar: 'الحائط المسطح المركب', code: 'GRC-C-004', scale: 'Facade', desc: 'Flat pilasters for facade rhythm — delivers classical presence without full column depth.' },
+    ],
+  },
+  {
+    id: 'arches',
+    title: 'Arches & Vaults',
+    ar: 'الأقواس والعقود',
+    icon: '⌒',
+    count: '60+',
+    items: [
+      { name: 'Grand Entrance Arch', ar: 'قوس المدخل الكبير', code: 'GRC-A-001', scale: 'Monumental', desc: 'Full entrance archway system with keystone, voussoirs, and decorative spandrels.' },
+      { name: 'Arabic Pointed Arch', ar: 'القوس العربي المدبب', code: 'GRC-A-002', scale: 'Standard', desc: 'The signature form of Arabic architecture — elegant pointed arch with interlace moulding.' },
+      { name: 'Triumphal Arch Set', ar: 'طقم القوس المنتصر', code: 'GRC-A-003', scale: 'Monumental', desc: 'Three-opening triumphal arch system for grand palace gate expressions.' },
+      { name: 'Window Arch Surround', ar: 'إطار قوس النافذة', code: 'GRC-A-004', scale: 'Window', desc: 'Complete decorative surround system for arched windows — keystone, pilasters, sill.' },
+    ],
+  },
+  {
+    id: 'cornices',
+    title: 'Cornices & Entablatures',
+    ar: 'الكرنيش والإفريز',
+    icon: '▬',
+    count: '70+',
+    items: [
+      { name: 'Royal Crown Cornice', ar: 'الكرنيش التاجي الملكي', code: 'GRC-K-001', scale: 'Roofline', desc: 'The most elaborate roofline cornice in our collection — multiple layers with egg-and-dart, dentils, and modillions.' },
+      { name: 'Classical Entablature', ar: 'الإفريز الكلاسيكي', code: 'GRC-K-002', scale: 'Facade', desc: 'Complete three-part entablature: architrave, frieze with triglyph pattern, and projecting cornice.' },
+      { name: 'Bed Moulding Set', ar: 'طقم القالب السفلي', code: 'GRC-K-003', scale: 'Intermediate', desc: 'Intermediate floor-line moulding set for multi-storey facade articulation.' },
+      { name: 'Dentil Strip', ar: 'شريط الأسنان', code: 'GRC-K-004', scale: 'Detail', desc: 'Precision dentil block sequence for cornice enrichment. Compatible with all major systems.' },
+    ],
+  },
+  {
+    id: 'ornaments',
+    title: 'Wall Ornaments',
+    ar: 'زخارف الجدران',
+    icon: '✦',
+    count: '120+',
+    items: [
+      { name: 'Acanthus Medallion', ar: 'ميدالية الأقنثس', code: 'GRC-O-001', scale: 'Panel', desc: 'Large acanthus leaf medallion for blank wall panels — adds richness to flat facade surfaces.' },
+      { name: 'Islamic Geometric Panel', ar: 'لوحة هندسية إسلامية', code: 'GRC-O-002', scale: 'Panel', desc: 'Mashrabiya-inspired geometric lattice panel. Combines classical structure with Arabic pattern.' },
+      { name: 'Fleur-de-Lis Frieze', ar: 'إفريز زنبقة', code: 'GRC-O-003', scale: 'Strip', desc: 'Repeating floral frieze pattern for horizontal decorative banding across facade surfaces.' },
+      { name: 'Cartouche Frame', ar: 'إطار الكارتوش', code: 'GRC-O-004', scale: 'Feature', desc: 'Ornate frame cartouche for villa name plates, crests, or inscription panels.' },
+    ],
+  },
+  {
+    id: 'balustrades',
+    title: 'Balustrades & Rails',
+    ar: 'الدرابزين والحواجز',
+    icon: '≡',
+    count: '45+',
+    items: [
+      { name: 'Palace Balustrade System', ar: 'نظام درابزين القصر', code: 'GRC-B-001', scale: 'System', desc: 'Complete balustrade system: turned balusters, top rail, base rail, and corner newels.' },
+      { name: 'Urn Finial Balustrade', ar: 'درابزين مع جرة زخرفية', code: 'GRC-B-002', scale: 'Premium', desc: 'Balustrade featuring decorative urn finials at intervals. Adds vertical rhythm and grandeur.' },
+      { name: 'Ironwork-Style Rail', ar: 'درابزين بأسلوب الحديد', code: 'GRC-B-003', scale: 'Standard', desc: 'GRC panel designed to mimic ornate wrought iron railings — lighter, more durable, maintenance-free.' },
+    ],
+  },
+  {
+    id: 'domes',
+    title: 'Domes & Cupolas',
+    ar: 'القباب والمنافذ',
+    icon: '◯',
+    count: '30+',
+    items: [
+      { name: 'Octagonal Cupola', ar: 'القبة الثمانية', code: 'GRC-D-001', scale: 'Roof Feature', desc: 'Eight-sided cupola for roof accent features — adds vertical interest and classical presence to flat rooflines.' },
+      { name: 'Ottoman-Inspired Dome', ar: 'القبة العثمانية الملهمة', code: 'GRC-D-002', scale: 'Major', desc: 'Classic Ottoman profile dome for gate towers and entrance pavilions. Available in three diameter scales.' },
+      { name: 'Decorative Finial Set', ar: 'طقم الزخرفة الطرفية', code: 'GRC-D-003', scale: 'Detail', desc: 'Acorn, urn, and flame finials for column tops, gate posts, and roof peaks.' },
+    ],
+  },
+];
+---
+
+<Layout title="OSOOL GRC Collection — Luxury Architectural Elements | مجموعة GRC" page="grc">
+
+  <!-- HERO -->
+  <section class="relative min-h-[60vh] flex items-end overflow-hidden" style="padding-top:100px;">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 80% 55% at 50% 100%, rgba(201,169,110,.16) 0%, transparent 65%), linear-gradient(180deg,#080808 0%,#1a1208 60%,#080808 100%);"></div>
+
+    <!-- GRC element parade (decorative) -->
+    <div class="absolute inset-0 overflow-hidden opacity-15 pointer-events-none" aria-hidden="true">
+      <svg viewBox="0 0 1440 600" class="absolute bottom-0 w-full" preserveAspectRatio="xMidYMax slice" fill="none">
+        {[60,160,260,360,460,560,660,760,860,960,1060,1160,1260,1360].map((x:number)=>(
+          <g key={x}>
+            <rect x={x} y="30" width="40" height="570" fill="url(#heroGRC)"/>
+            <ellipse cx={x+20} cy="35" rx="32" ry="52" fill="rgba(232,213,163,.42)"/>
+            <rect x={x-6} y="26" width="52" height="12" fill="rgba(201,169,110,.55)"/>
+          </g>
+        ))}
+        <rect x="0" y="585" width="1440" height="20" fill="rgba(201,169,110,.3)"/>
+        <rect x="0" y="20" width="1440" height="10" fill="rgba(201,169,110,.35)"/>
+        <defs>
+          <linearGradient id="heroGRC" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#1a1208"/>
+            <stop offset="35%" stop-color="#E8D5A3" stop-opacity="0.58"/>
+            <stop offset="65%" stop-color="#C9A96E" stop-opacity="0.42"/>
+            <stop offset="100%" stop-color="#1a1208"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="relative z-10 section-pad w-full max-w-screen-xl mx-auto pb-24">
+      <div class="label-en mb-6 reveal" style="color:var(--gold);">Architectural Elements</div>
+      <h1 class="display-en mb-4 reveal reveal-delay-1">GRC<br/><em style="font-style:italic; color:var(--gold);">COLLECTION</em></h1>
+      <p class="display-ar reveal reveal-delay-2" style="font-size:clamp(1.8rem,3.5vw,4rem);">مجموعة GRC الزخرفية</p>
+      <div class="flex flex-wrap gap-6 mt-8 reveal reveal-delay-3">
+        <div class="text-center">
+          <div class="font-cormorant font-light text-4xl" style="color:var(--gold);">500+</div>
+          <div class="label-en" style="color:var(--gold-muted); font-size:.6rem;">GRC Elements</div>
+        </div>
+        <div class="w-px h-12 self-center" style="background:var(--black-border);"></div>
+        <div class="text-center">
+          <div class="font-cormorant font-light text-4xl" style="color:var(--gold);">6</div>
+          <div class="label-en" style="color:var(--gold-muted); font-size:.6rem;">Categories</div>
+        </div>
+        <div class="w-px h-12 self-center" style="background:var(--black-border);"></div>
+        <div class="text-center">
+          <div class="font-cormorant font-light text-4xl" style="color:var(--gold);">100%</div>
+          <div class="label-en" style="color:var(--gold-muted); font-size:.6rem;">Customizable</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IS GRC -->
+  <section class="section-pad" style="background:var(--black-deep);">
+    <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="label-en mb-6 reveal" style="color:var(--gold);">The Material</div>
+        <h2 class="headline-en mb-6 reveal reveal-delay-1">What is GRC?</h2>
+        <div class="space-y-5 reveal reveal-delay-2">
+          <p class="body-luxury">
+            <strong style="color:var(--gold); font-weight:400;">Glass Reinforced Concrete</strong> is the premier material
+            for luxury architectural ornamentation. It combines the visual weight and texture of stone with dramatically
+            reduced mass — enabling detailed, monumental elements that can be installed on any structure.
+          </p>
+          <p class="body-luxury">
+            Our GRC elements are cast from master moulds by specialist craftsmen, hand-finished to the highest
+            standards, and coated with UV-stable exterior finishes that maintain their colour and texture for decades.
+          </p>
+          <p class="font-amiri leading-loose" style="color:var(--sandstone); font-size:1.1rem;" dir="rtl">
+            الخرسانة المقواة بالزجاج (GRC) هي المادة الأولى للزخارف المعمارية الفاخرة. تجمع بين الثقل البصري للحجر وخاماته مع كتلة أخف بكثير، مما يتيح عناصر تفصيلية وضخمة يمكن تركيبها على أي هيكل.
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-4 reveal reveal-delay-2">
+        {[
+          { feature:'Lightweight', ar:'خفيف الوزن', sub:'75% lighter than natural stone', icon:'◈' },
+          { feature:'Durable', ar:'متين', sub:'50+ year exterior lifespan', icon:'◉' },
+          { feature:'Detailed', ar:'تفصيلي', sub:'1mm precision casting resolution', icon:'◎' },
+          { feature:'Customizable', ar:'قابل للتخصيص', sub:'Any form, any scale, any finish', icon:'◆' },
+        ].map(({ feature, ar, sub, icon }) => (
+          <div class="luxury-card bg-o-card p-6 text-center">
+            <div class="text-2xl mb-3" style="color:var(--gold); opacity:.7;">{icon}</div>
+            <div class="font-cormorant font-light mb-1" style="color:var(--ivory); font-size:1.2rem;">{feature}</div>
+            <div class="font-amiri text-xs mb-2" style="color:var(--bronze);" dir="rtl">{ar}</div>
+            <div class="body-luxury text-xs leading-relaxed">{sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  {categories.map(({ id, title, ar, icon, count, items },ci) => (
+    <section class="section-pad" style={`background:${ci%2===0?'var(--black)':'var(--black-deep)'};`} id={id}>
+      <div class="max-w-screen-xl mx-auto">
+        <!-- Category header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
+          <div>
+            <div class="font-cormorant font-light text-5xl mb-2" style="color:var(--gold); opacity:.5;">{icon}</div>
+            <h2 class="headline-en">{title}</h2>
+            <p class="font-amiri mt-1" style="color:var(--sandstone); font-size:1.6rem;" dir="rtl">{ar}</p>
+          </div>
+          <div class="flex items-center gap-4">
+            <div>
+              <div class="font-cormorant font-light text-3xl" style="color:var(--gold);">{count}</div>
+              <div class="label-en" style="color:var(--gold-muted); font-size:.6rem;">Elements</div>
+            </div>
+            <a href="/contact" class="btn-luxury-outline"><span>Specify Elements</span></a>
+          </div>
+        </div>
+
+        <!-- Items grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+          {items.map(({ name, ar: itemAr, code, scale, desc },ii) => (
+            <div class={`luxury-card bg-o-card overflow-hidden group reveal reveal-delay-${Math.min(ii+1,4)}`}>
+              <!-- Decorative element preview -->
+              <div class="relative overflow-hidden" style="height:180px; background:linear-gradient(160deg,#161616,#1a1208);">
+                <svg class="absolute inset-0 w-full h-full opacity-50" viewBox="0 0 200 180" fill="none" aria-hidden="true">
+                  {id === 'columns' && (
+                    <g>
+                      <rect x="85" y="10" width="30" height="160" fill="url(#elemC)"/>
+                      <ellipse cx="100" cy="14" rx="25" ry="40" fill="rgba(232,213,163,.45)"/>
+                      <rect x="78" y="5" width="44" height="12" fill="rgba(201,169,110,.55)"/>
+                      <rect x="78" y="160" width="44" height="14" fill="rgba(201,169,110,.4)"/>
+                    </g>
+                  )}
+                  {id === 'arches' && (
+                    <path d="M40 170 L40 90 Q100 20 160 90 L160 170" stroke="rgba(201,169,110,.6)" stroke-width="8" fill="rgba(201,169,110,.12)"/>
+                  )}
+                  {id === 'cornices' && (
+                    <g>
+                      <rect x="10" y="60" width="180" height="20" fill="rgba(201,169,110,.48)"/>
+                      <rect x="10" y="50" width="180" height="14" fill="rgba(201,169,110,.3)"/>
+                      <rect x="10" y="80" width="180" height="8" fill="rgba(201,169,110,.22)"/>
+                      {[20,40,60,80,100,120,140,160].map((x:number)=>(
+                        <rect key={x} x={x} y="88" width="12" height="15" fill="rgba(201,169,110,.35)"/>
+                      ))}
+                    </g>
+                  )}
+                  {id === 'ornaments' && (
+                    <g>
+                      <circle cx="100" cy="90" r="55" stroke="rgba(201,169,110,.35)" stroke-width="1.5" fill="none"/>
+                      <circle cx="100" cy="90" r="38" stroke="rgba(201,169,110,.5)" stroke-width="1" fill="none"/>
+                      {[0,45,90,135,180,225,270,315].map((deg:number)=>{
+                        const r=55, cx=100+r*Math.cos(deg*Math.PI/180), cy=90+r*Math.sin(deg*Math.PI/180);
+                        return <circle key={deg} cx={cx} cy={cy} r="4" fill="rgba(201,169,110,.5)"/>;
+                      })}
+                      <path d="M70 90 Q100 50 130 90 Q100 130 70 90Z" stroke="rgba(201,169,110,.6)" stroke-width="1.2" fill="rgba(201,169,110,.08)"/>
+                    </g>
+                  )}
+                  {id === 'balustrades' && (
+                    <g>
+                      {[25,55,85,115,145,175].map((x:number)=>(
+                        <g key={x}>
+                          <ellipse cx={x} cy="55" rx="10" ry="18" fill="rgba(201,169,110,.35)"/>
+                          <rect x={x-3} y="73" width="6" height="70" fill="rgba(201,169,110,.3)"/>
+                          <ellipse cx={x} cy="125" rx="10" ry="18" fill="rgba(201,169,110,.35)"/>
+                        </g>
+                      ))}
+                      <rect x="15" y="40" width="170" height="15" fill="rgba(201,169,110,.4)"/>
+                      <rect x="15" y="143" width="170" height="15" fill="rgba(201,169,110,.4)"/>
+                    </g>
+                  )}
+                  {id === 'domes' && (
+                    <path d="M40 160 Q40 50 100 20 Q160 50 160 160" stroke="rgba(201,169,110,.5)" stroke-width="6" fill="rgba(201,169,110,.1)"/>
+                  )}
+                  <defs>
+                    <linearGradient id="elemC" x1="0" y1="0" x2="1" y2="0">
+                      <stop offset="0%" stop-color="#1a1208"/>
+                      <stop offset="30%" stop-color="#E8D5A3" stop-opacity="0.55"/>
+                      <stop offset="70%" stop-color="#C9A96E" stop-opacity="0.4"/>
+                      <stop offset="100%" stop-color="#1a1208"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="absolute inset-0" style="background:linear-gradient(to top, var(--black-card) 0%, transparent 60%);"></div>
+                <div class="absolute top-3 right-3 label-en px-2 py-1" style="background:rgba(8,8,8,.9); color:var(--gold-muted); font-size:.5rem;">{code}</div>
+              </div>
+
+              <!-- Info -->
+              <div class="p-6">
+                <div class="flex items-start justify-between mb-2">
+                  <h3 class="font-cormorant font-light text-lg transition-colors duration-300 group-hover:text-gold" style="color:var(--ivory);">{name}</h3>
+                  <span class="label-en px-2 py-0.5 border flex-shrink-0 ml-2" style="border-color:var(--black-border); color:var(--gold-muted); font-size:.5rem;">{scale}</span>
+                </div>
+                <p class="font-amiri text-xs mb-3" style="color:var(--bronze);" dir="rtl">{itemAr}</p>
+                <p class="body-luxury text-xs leading-relaxed mb-4">{desc}</p>
+                <a href="/contact" class="label-en flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="color:var(--gold); font-size:.6rem;">
+                  <span>Specify This Element</span>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <!-- CTA -->
+  <section class="section-pad" style="background:var(--black-warm);">
+    <div class="max-w-screen-lg mx-auto text-center">
+      <div class="label-en mb-4 reveal" style="color:var(--gold);">Specify for Your Project</div>
+      <h2 class="headline-en mb-4 reveal reveal-delay-1">Ready to Specify<br/><em class="text-gold" style="font-style:italic;">GRC Elements?</em></h2>
+      <p class="font-amiri mb-8 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.5rem;" dir="rtl">هل أنت مستعد لتحديد عناصر GRC لمشروعك؟</p>
+      <p class="body-luxury max-w-lg mx-auto mb-10 reveal reveal-delay-3">
+        Our GRC specialists will help you select the right elements, scales, and finishes for your specific facade.
+        All elements are available with full technical drawings and material specifications.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-4">
+        <a href="/contact" class="btn-luxury"><span>Request GRC Consultation</span></a>
+        <a href="/portfolio" class="btn-luxury-outline"><span>See GRC in Projects</span></a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

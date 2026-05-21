@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  { id:1, title:'Al-Wajd Palace Villa',     ar:'قصر الوجد',          location:'Riyadh, 2024',       type:'Neoclassical Facade',   tags:['Neoclassical','GRC Facade','Palace'], gradient:'radial-gradient(ellipse 65% 55% at 60% 70%, rgba(201,169,110,.22) 0%, transparent 65%), linear-gradient(150deg,#0d0a06,#1a1208,#0a0705)', featured:true },
+  { id:2, title:'Al-Noor Residences',       ar:'مجمع النور',          location:'Jeddah, 2024',       type:'Residential Facade',    tags:['Transformation','GRC','Residential'], gradient:'linear-gradient(140deg,#1a0f06,#2a1908,#0d0705)', featured:false },
+  { id:3, title:'Khalij Palace',            ar:'قصر الخليج',          location:'Kuwait City, 2023',  type:'Palace Entrance',       tags:['Palace Entrance','Full Facade','Royal'], gradient:'linear-gradient(140deg,#0a0d1a,#081220,#080808)', featured:false },
+  { id:4, title:'Desert Retreat Villa',     ar:'واحة الصحراء',        location:'Dubai, 2023',        type:'Outdoor Architecture',  tags:['Outdoor','Luxury','Pergola'], gradient:'linear-gradient(140deg,#120808,#1a0a06,#080808)', featured:false },
+  { id:5, title:'Al-Rashid Compound',       ar:'مجمع الراشد',         location:'Riyadh, 2023',       type:'Full Estate Design',    tags:['Estate','Full Design','GRC'], gradient:'radial-gradient(ellipse 70% 50% at 40% 75%, rgba(201,169,110,.18) 0%, transparent 62%), linear-gradient(150deg,#0d0a06,#16120a,#0d0a06)', featured:true },
+  { id:6, title:'Shamal Tower Exterior',    ar:'برج الشمال',           location:'Doha, 2022',         type:'Commercial Facade',     tags:['Commercial','Modern','GRC'], gradient:'linear-gradient(140deg,#08081a,#0a0a20,#080808)', featured:false },
+  { id:7, title:'Pearl Villas',             ar:'فلل اللؤلؤة',         location:'Abu Dhabi, 2022',    type:'Villa Transformation',  tags:['Transformation','Before/After'], gradient:'linear-gradient(140deg,#1a1008,#22160a,#0d0a06)', featured:false },
+  { id:8, title:'Oasis Palace',             ar:'قصر الواحة',          location:'Riyadh, 2022',       type:'Palace Architecture',   tags:['Palace','Neoclassical','Full Design'], gradient:'radial-gradient(ellipse 60% 50% at 50% 80%, rgba(201,169,110,.2) 0%, transparent 60%), linear-gradient(160deg,#0a0806,#181008,#0a0806)', featured:false },
+  { id:9, title:'Gulf Heritage Residence',  ar:'دار التراث الخليجي',  location:'Bahrain, 2021',      type:'Heritage Design',       tags:['Heritage','Arabic','Luxury'], gradient:'linear-gradient(150deg,#0d0808,#1a0f0a,#0d0806)', featured:false },
+];
+---
+
+<Layout title="OSOOL Portfolio — Luxury Facade Projects | معرض أعمال أصول" page="portfolio">
+
+  <!-- HERO -->
+  <section class="relative min-h-[60vh] flex items-end overflow-hidden" style="padding-top:100px;">
+    <div class="absolute inset-0" style="background:radial-gradient(ellipse 60% 50% at 50% 80%, rgba(201,169,110,.12) 0%, transparent 65%), linear-gradient(180deg,#080808 0%,#1a1208 60%,#080808 100%);"></div>
+    <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none" aria-hidden="true">
+      <span class="font-cormorant font-light" style="font-size:50vw; opacity:.03; line-height:.8; color:var(--gold);">P</span>
+    </div>
+    <div class="relative z-10 section-pad w-full max-w-screen-xl mx-auto pb-20">
+      <div class="label-en mb-6 reveal" style="color:var(--gold);">Our Work</div>
+      <h1 class="display-en mb-4 reveal reveal-delay-1">
+        PORTFOLIO<br/><em style="font-style:italic; color:var(--gold);">& PROJECTS</em>
+      </h1>
+      <p class="display-ar reveal reveal-delay-2" style="font-size:clamp(1.8rem,3.5vw,4rem);">معرض أعمالنا</p>
+    </div>
+  </section>
+
+  <!-- FILTER TABS -->
+  <section style="background:var(--black-deep);">
+    <div class="max-w-screen-xl mx-auto px-6 md:px-12 py-6 border-b" style="border-color:var(--black-border);">
+      <div class="flex flex-wrap gap-3" id="filter-tabs">
+        {['All','Neoclassical','Transformation','Palace','GRC','Outdoor','Commercial'].map((f,i) => (
+          <button
+            class="filter-btn label-en px-5 py-2 border transition-all duration-300"
+            style={`border-color:${i===0?'var(--gold)':'var(--black-border)'}; color:${i===0?'var(--gold)':'var(--gold-muted)'}; background:${i===0?'rgba(201,169,110,.08)':'transparent'};`}
+            data-filter={f}
+          >
+            {f}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section class="section-pad" style="background:var(--black-deep);">
+    <div class="max-w-screen-xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4" id="projects-grid">
+        {projects.map(({ title, ar, location, type, tags, gradient, featured },i) => (
+          <div
+            class={`img-zoom-wrap relative overflow-hidden block group reveal reveal-delay-${Math.min((i%3)+1,3)} ${featured ? 'md:col-span-2' : ''}`}
+            data-tags={tags.join(',')}
+            style={`height:${featured ? 'clamp(320px,40vw,520px)' : 'clamp(240px,30vw,380px)'};`}
+          >
+            <!-- Background composition -->
+            <div class="img-fill absolute inset-0 transition-transform duration-700" style={`background:${gradient};`}></div>
+
+            <!-- Architectural SVG overlay -->
+            <svg class="absolute inset-0 w-full h-full opacity-35" viewBox="0 0 600 380" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
+              <rect x="40" y="50" width="520" height="330" fill="url(#pG)" opacity="0.55"/>
+              {[80,180,280,380,480].map((x:number)=>(
+                <g key={x}>
+                  <rect x={x} y="35" width="35" height="345" fill="url(#pC)"/>
+                  <ellipse cx={x+17} cy="38" rx="26" ry="42" fill="rgba(232,213,163,.4)"/>
+                </g>
+              ))}
+              <rect x="32" y="24" width="536" height="18" fill="rgba(201,169,110,.48)"/>
+              {[110,270,430].map((x:number)=>(
+                <g key={x}><rect x={x} y="280" width="90" height="150" fill="rgba(201,169,110,.15)" stroke="rgba(201,169,110,.4)" stroke-width="1.2"/><path d={`M${x} 280 Q${x+45} 234 ${x+90} 280`} fill="rgba(201,169,110,.25)"/></g>
+              ))}
+              <ellipse cx="300" cy="380" rx="280" ry="45" fill="rgba(201,169,110,.1)"/>
+              <defs>
+                <linearGradient id="pG" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#C9A96E" stop-opacity="0.3"/><stop offset="100%" stop-color="#080808" stop-opacity="0.9"/></linearGradient>
+                <linearGradient id="pC" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0a0805"/><stop offset="35%" stop-color="#E8D5A3" stop-opacity="0.55"/><stop offset="65%" stop-color="#C9A96E" stop-opacity="0.4"/><stop offset="100%" stop-color="#0a0805"/></linearGradient>
+              </defs>
+            </svg>
+
+            <!-- Gradient overlay -->
+            <div class="absolute inset-0" style="background:linear-gradient(to top, var(--black) 0%, rgba(8,8,8,.5) 40%, transparent 70%);"></div>
+
+            <!-- Info -->
+            <div class="absolute bottom-0 left-0 right-0 p-6 md:p-8 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-400">
+              <div class="label-en mb-2" style="color:var(--gold-muted); font-size:.58rem;">{location} · {type}</div>
+              <h3 class="font-cormorant font-light mb-1 group-hover:text-gold transition-colors duration-300" style={`font-size:${featured?'clamp(1.8rem,3vw,3rem)':'1.8rem'}; color:var(--ivory);`}>{title}</h3>
+              <p class="font-amiri text-sm" style="color:var(--bronze);" dir="rtl">{ar}</p>
+              <div class="flex flex-wrap gap-2 mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {tags.map(t=><span class="label-en px-2 py-0.5 border" style="border-color:rgba(201,169,110,.3); color:var(--gold-muted); font-size:.55rem;">{t}</span>)}
+              </div>
+            </div>
+
+            <!-- View button -->
+            <button class="absolute top-5 right-5 w-10 h-10 border flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background:rgba(8,8,8,.85); border-color:var(--black-border); color:var(--gold);" aria-label={`View ${title}`}>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section-pad" style="background:var(--black-warm);">
+    <div class="max-w-screen-lg mx-auto text-center">
+      <div class="label-en mb-4 reveal" style="color:var(--gold);">Your Project Could Be Next</div>
+      <h2 class="headline-en mb-4 reveal reveal-delay-1">Let's Create Something<br/><em class="text-gold" style="font-style:italic;">Extraordinary</em></h2>
+      <p class="font-amiri mb-8 reveal reveal-delay-2" style="color:var(--sandstone); font-size:1.5rem;" dir="rtl">لنصنع شيئاً استثنائياً معاً</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center reveal reveal-delay-3">
+        <a href="/contact" class="btn-luxury"><span>Start Your Project</span></a>
+        <a href="/grc-collection" class="btn-luxury-outline"><span>Explore GRC Collection</span></a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<script>
+  // Filter functionality
+  const tabs = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll<HTMLElement>('#projects-grid > div');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.getAttribute('data-filter') || 'All';
+
+      // Update tab styles
+      tabs.forEach(t => {
+        const isActive = t === tab;
+        (t as HTMLElement).style.borderColor = isActive ? 'var(--gold)' : 'var(--black-border)';
+        (t as HTMLElement).style.color = isActive ? 'var(--gold)' : 'var(--gold-muted)';
+        (t as HTMLElement).style.background = isActive ? 'rgba(201,169,110,.08)' : 'transparent';
+      });
+
+      cards.forEach(card => {
+        const tags = card.getAttribute('data-tags') || '';
+        const show = filter === 'All' || tags.includes(filter);
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+</script>
